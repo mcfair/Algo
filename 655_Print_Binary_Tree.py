@@ -8,8 +8,11 @@ class Solution(object):
         (1)Use dfs to find tree height 'm', then calculate width 'n' and center 'c'
         (1)Use bfs to do level order traversal
         (2)Replace null node with TreeNode("") in each level/row.
-        (3)Calculate the position of the node, which is its parent position +/- 2^(m-i-2)
+        (3)Calculate the position of each node, which is its parent position +/- 2^(m-i-2)
        
+        Additional math, given a Binary Tree of height H:
+            The maximum total number of nodes is = 2^H - 1
+            Number of nodes at each level, L (0-indexed) = 2^L
         """
         
         m = self.findDepth(root) #height of the matrix
