@@ -39,7 +39,8 @@ class Solution(object):
         return maxa
     
     def largestRectangleArea2(self, height):
-        #high level idea is the same as method 1: find the max spread of each bar
+        #Method 2, O(n) 44ms
+        #High level idea is the same as method 1: find the max spread of each bar
         #we can use a stack to store left index
         
         height.append(-1)
