@@ -1,1 +1,1 @@
-# AlgoLC
+# Algo
