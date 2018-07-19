@@ -19,9 +19,9 @@ class Solution(object):
         for i in range(len(s)-1):
             dp[i,i+1] = 2 if s[i]==s[i+1] else 1
         
-        for lens in range(3,len(s)+1):
-            for i in range(len(s) - lens +1):
-                j = i + lens -1
+        for gap in range(2,len(s)):
+            for i in range(len(s) - gap):
+                j = i + gap
                 if s[i]==s[j]:
                     dp[i, j] = 2 + dp[i+1,j-1]
                 else:
