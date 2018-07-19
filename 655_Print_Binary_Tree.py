@@ -1,10 +1,31 @@
 class Solution(object):
-    def printTree(self, root):
+    #Two methoeds: recursive(dfs) & iterative(bfs)
+    
+    def printTree_recusive(self, root):
+        """
+        Calculate the position of each node from its parent position p +/- 2^(m-row-2)
+        Starting from root, where row=0, pos=c. Then recursively find all childrens.
+        """
+        m = self.findDepth(root) #height of the matrix
+        n = 2**m -1
+        c = n/2  
+       
+        res = [[""]* n for _ in range(m)]
+        def dfs(node, row, pos):
+            if not node: return
+            res[row][pos]=str(node.val)
+            dfs(node.left, row+1, pos - 2**(m-row-2))
+            dfs(node.right, row+1, pos + 2**(m-row-2))
+            
+        dfs(root, row=0, pos=c)
+        return res
+            
+    def printTree_iterative(self, root):
         """
         :type root: TreeNode
         :rtype: List[List[str]]
         
-        My naive solution, 28ms beat 100%,  O(m*n)
+        My iterative solution, 28ms beat 100%,  O(m*n)
         (1)Use dfs to find tree height 'm', then calculate width 'n' and center 'c'
         (1)Use bfs to do level order traversal
         (2)Replace null node with TreeNode("") in each level/row.
@@ -16,7 +37,8 @@ class Solution(object):
         """
         
         m = self.findDepth(root) #height of the matrix
-        n = sum(2**i for i in range(m)) #width of the matrix
+        n = 2**m -1
+        #n = sum(2**i for i in range(m)) #width of the matrix  n = 2^m -1
         c = n/2  #center of each row, n must be odd,index starts from 0
       
         bfs, tmp, ans, pos = [root] , ['']*n, [], [c]
@@ -45,3 +67,6 @@ class Solution(object):
     def findDepth(self,root):
         if not root: return 0
         return 1 + max(self.findDepth(root.left), self.findDepth(root.right))
+    
+
+        
