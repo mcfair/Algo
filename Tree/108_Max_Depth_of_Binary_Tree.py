@@ -12,7 +12,6 @@ class Solution(object):
 		#bfs
 		row, depth = [root], 0
 		while any(row):
-			row = [child for x in row
-							for child in (x.left, x.right) if child]
+			row = [child for x in row for child in (x.left, x.right) if child]
 			depth +=1
 		return depth
