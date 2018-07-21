@@ -1,6 +1,6 @@
 
 
-#BFS method 1060ms
+#BFS method O(n^2) 1060ms
 class Solution(object):
     def countNodes(self, root):
         """
