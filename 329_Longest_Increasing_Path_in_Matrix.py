@@ -1,5 +1,5 @@
 #dp 200ms O(m*n)
-#trick is to sort bu value and build dp from smaller values to larger values
+#trick is to sort by value and build dp from smaller values to larger values
 class Solution(object):
     def longestIncreasingPath(self, matrix):
         """
