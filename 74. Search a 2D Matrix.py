@@ -1,4 +1,4 @@
-#O(m+n)
+#O(log(m) + log(n))
 class Solution(object):
     def searchMatrix(self, matrix, target):
         """
