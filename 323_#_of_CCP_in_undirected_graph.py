@@ -52,3 +52,34 @@ class Solution(object):
         if a != self.papa.setdefault(a,a):
             self.papa[a] = self.find(self.papa[a])
         return self.papa[a]
+
+# DFS O(m+n)
+class Solution(object):
+    def countComponents(self, n, edges):
+        """
+        :type n: int
+        :type edges: List[List[int]]
+        :rtype: int
+        """
+        #construct graph
+        g = collections.defaultdict(list)
+        for u, v in edges:
+            g[v].append(u)
+            g[u].append(v)
+            
+        visited, count = set(), 0
+        
+        #standar DFS
+        def dfs(i):
+            if i in visited:
+                return
+            visited.add(i)
+            for x in g[i]:
+                dfs(x)
+        
+        for i in range(n):
+            if i not in visited:
+                count +=1
+                dfs(i)
+        
+        return count
