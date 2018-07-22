@@ -1,4 +1,6 @@
 # 44ms 
+# If m operations (here m edges), either Union or Find, are applied to n elements, 
+# the total run time is O(m log*n), where log* is the iterated logarithm. ~=O(4m)= O(m)
 class Solution(object):
     def countComponents(self, n, edges):
         """
