@@ -1,3 +1,4 @@
+#DFS
 class Solution(object):
     def validTree(self, n, edges):
         """
@@ -24,4 +25,28 @@ class Solution(object):
         
         dfs(0)
         return sum(seen)==n
+   
+#Union-Find
+class Solution(object):
+    def validTree(self, n, edges):
+
+        if len(edges)!=n-1:
+            return False
+        
+        self.papa = range(n)
+        self.count = n
+        map(self.union, edges)
+        
+        return self.count==1
+
+    def union(self, (a,b)):
+        pa, pb = self.find(a), self.find(b)
+        if pa != pb:
+            self.papa[pa] = pb
+            self.count -=1
+        
+    def find(self, x):
+        if x != self.papa[x]:
+            self.papa[x] = self.find(self.papa[x])
+        return self.papa[x]
             
