@@ -1,3 +1,32 @@
+#Union Find - Stefan 240ms
+class Solution(object):
+    
+    def numIslands2(self, m, n, positions):
+        parent, rank, count = {}, {}, [0]
+        def find(x):
+            return x if x== parent[x] else find( parent[x])
+    
+        def union(x, y):
+            x, y = find(x), find(y)
+            if x != y:
+                if rank[x] < rank[y]:
+                    x, y = y, x
+                parent[y] = x
+                rank[x] += rank[x] == rank[y]
+                count[0] -= 1
+                
+        def add((i, j)):
+            x = (i, j)
+            parent[x], rank[x]  = x, 0
+            count[0] += 1
+            for y in (i+1, j), (i-1, j), (i, j+1), (i, j-1):
+                if y in parent:
+                    union(x, y)
+            return count[0]
+        
+        return map(add, positions)
+    
+    
 class Solution(object):
     def numIslands2(self, m, n, positions):
         """
@@ -13,7 +42,7 @@ class Solution(object):
             ret.append(uf.count)
         return ret
 
-#TLE
+#TLE myself TLE
 class UnionFind(object):
     def __init__(self):
         self.parent = {}
