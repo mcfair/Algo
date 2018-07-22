@@ -22,6 +22,7 @@ class Solution(object):
             seen[i]=1
             for nei in g[i]:
                 dfs(nei)
+            return
         
         dfs(0)
         return sum(seen)==n
