@@ -49,4 +49,15 @@ class Solution(object):
         if x != self.papa[x]:
             self.papa[x] = self.find(self.papa[x])
         return self.papa[x]
-            
+         
+#Stefen Union-Find
+class Solution(object): 
+  def validTree(self, n, edges):
+    parent = range(n)
+    def find(x):
+        return x if parent[x] == x else find(parent[x])
+    def union(xy):
+        x, y = map(find, xy)
+        parent[x] = y
+        return x != y
+    return len(edges) == n-1 and all(map(union, edges))
