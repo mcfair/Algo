@@ -56,11 +56,7 @@ class Solution(object):
 # DFS O(m+n)
 class Solution(object):
     def countComponents(self, n, edges):
-        """
-        :type n: int
-        :type edges: List[List[int]]
-        :rtype: int
-        """
+ 
         #construct graph
         g = collections.defaultdict(list)
         for u, v in edges:
@@ -82,4 +78,32 @@ class Solution(object):
                 count +=1
                 dfs(i)
         
+        return count
+
+#BFS
+class Solution(object):
+    def countComponents(self, n, edges):
+  
+        #construct graph
+        g = collections.defaultdict(list)
+        for u, v in edges:
+            g[v].append(u)
+            g[u].append(v)
+            
+ 
+        visited, count = set(), 0
+        
+        def bfs(node):
+            queue = [node]
+            for n in queue:
+                for nei in g[n]:
+                    if nei not in visited:
+                        visited.add(nei)
+                        queue.append(nei)
+        
+        for i in range(n):
+            if i not in visited:
+                count += 1
+                bfs(i)
+                
         return count
