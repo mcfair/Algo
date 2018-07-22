@@ -2,7 +2,8 @@
 
 
 
-#naive way O(n^2) time O(1) space, 20ms beats 100%
+#greedy algo O(n^2) time O(1) space, 20ms beats 100%
+#but how is it getting min # of swaps, not greater?
 class Solution(object):
     def minSwapsCouples(self, row):
         """
