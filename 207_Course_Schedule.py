@@ -1,3 +1,35 @@
+class Solution(object):
+    def canFinish(self, numCourses, prerequisites):
+        """
+        :type numCourses: int
+        :type prerequisites: List[List[int]]
+        :rtype: bool
+        """
+        g = collections.defaultdict(list)
+        for a,b in prerequisites:
+            g[a].append(b)
+        
+        #idea: if there is circle in the graph, then can't finish
+        
+        seen = [0]*numCourses
+        
+        def hasCircle(i):
+            if seen[i]==1:
+                return True
+            if seen[i]==2:
+                return False
+            seen[i] =1
+            for j in g[i]:
+                if hasCircle(j):
+                    return True
+            seen[i] =2
+            return False
+            
+        for i in range(numCourses):
+            if hasCircle(i):
+                return False
+        return True
+
 class Solution(object): 
     def canFinish(self, numCourses, prerequisites):
         """
