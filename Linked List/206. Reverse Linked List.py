@@ -1,13 +1,11 @@
 #Iterative way
 class Solution(object):
     def reverseList(self, head):
- 
+        # remember those 4 lines!
         l , r = None, head
         while r:
-            l,  r,  r.next = r,   r.next, l 
+            l,  r,  r.next = r,   r.next, l  
         return l
-
-
 
 
 #Recursive way
