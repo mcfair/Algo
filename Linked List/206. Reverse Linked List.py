@@ -4,7 +4,7 @@ class Solution(object):
         # remember those 4 lines!
         l , r = None, head
         while r:
-            l,  r,  r.next = r,   r.next, l  
+            l,  r.next,  r = r,  l,  r.next
         return l
 
 
