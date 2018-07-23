@@ -10,7 +10,7 @@ class Solution(object):
         #O(n)
         counts = collections.Counter(hand)
         
-        #O(k) < O(n)
+        #O(mlogm) 
         uniques = sorted(counts.keys())
         
         #O(n)
@@ -19,8 +19,6 @@ class Solution(object):
                 for i in range(W):
                     if counts[card+i]>0:
                         counts[card+i] -=1
-                    elif sum(counts.values())==0:
-                        return True
                     else:
                         return False
 
