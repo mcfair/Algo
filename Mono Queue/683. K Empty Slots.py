@@ -31,7 +31,7 @@ class Solution(object):
             
             #first valid window is [1,k] to compare with 0 and k+1
             if j>=k:
-                if k==0 or garden[dq[0]] > max(garden[j-k], garden[j+1]):
+                if k==0 or garden[j-k]< garden[dq[0]] > garden[j+1]:
                 #condition k==0 here is to deal with corner cases dp is empty when k=0
                     ans = min(ans, max(garden[j+1], garden[j-k]))
                 
