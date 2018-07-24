@@ -1,3 +1,38 @@
+#Stefan's solution, only push index in, keep track of window size
+"""
+The indexes in deque are from the current window, they're increasing, and their corresponding nums are decreasing. 
+Then the first deque element is the index of the largest window value.
+
+For each index i (when >= k-1):
+
+Pop (from the end) indexes of smaller elements (they'll be useless).
+Append the current index.
+Popleft (from the front) the index i - k, if it's still in the deque (it falls out of the window).
+If our window has reached size k, append the current window maximum to the output.
+"""
+class Solution(object):
+    def maxSlidingWindow(self, nums, k):
+        dq = collections.deque()
+        maxval = []
+        
+        for i, x in enumerate(nums):
+            # the next 3 lines are the "push" operation
+            while dq and nums[dq[-1]] < x:
+                dq.pop()
+            dq.append(i)
+            
+            #current window is from i-k+1 to i
+            if dq[0] == i - k:
+                dq.popleft()
+                
+            #first valid window of size k ending at index k-1 
+            if i >= k - 1:
+                maxval.append(nums[dq[0]])
+                
+        return maxval
+
+    
+    
 #Huahua's solution, only push value in, keep track of window size
 class MaxQueue(object):
     def __init__(self):
