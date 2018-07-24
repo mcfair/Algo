@@ -8,7 +8,7 @@ For each index i (when >= k-1):
 Pop (from the end) indexes of smaller elements (they'll be useless).
 Append the current index.
 Popleft (from the front) the index i - k, if it's still in the deque (it falls out of the window).
-If our window has reached size k, append the current window maximum to the output.
+Append the current window maximum (leftmost) to the output.
 """
 class Solution(object):
     def maxSlidingWindow(self, nums, k):
@@ -21,11 +21,11 @@ class Solution(object):
                 dq.pop()
             dq.append(i)
             
-            #current window is from i-k+1 to i
+            #current window is [i-k+1, i] inclusive
             if dq[0] == i - k:
                 dq.popleft()
                 
-            #first valid window of size k ends at index k-1 
+            #first valid window of size k is [0, k-1], so first valid i is k-1
             if i >= k - 1:
                 maxval.append(nums[dq[0]])
                 
