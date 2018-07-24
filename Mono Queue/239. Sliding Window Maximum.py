@@ -25,7 +25,7 @@ class Solution(object):
             if dq[0] == i - k:
                 dq.popleft()
                 
-            #first valid window of size k ending at index k-1 
+            #first valid window of size k ends at index k-1 
             if i >= k - 1:
                 maxval.append(nums[dq[0]])
                 
