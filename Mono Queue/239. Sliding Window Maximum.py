@@ -92,3 +92,22 @@ class Solution(object):
             mq.pop()                     #pop the first item
           
         return maxval
+"""
+Input: nums=[1,3,-1,-3,5,3,6,7], k=3
+
+Output:
+push 1 deque([[1, 0]])
+push 3 deque([[3, 1]])
+push -1 deque([[3, 1], [-1, 0]]) window= 0 - 2
+pop -1 deque([[3, 1], [-1, 0]]) window= 0 - 2
+push -3 deque([[3, 0], [-1, 0], [-3, 0]]) window= 1 - 3
+pop -3 deque([[3, 0], [-1, 0], [-3, 0]]) window= 1 - 3
+push 5 deque([[5, 2]]) window= 2 - 4
+pop 5 deque([[5, 2]]) window= 2 - 4
+push 3 deque([[5, 1], [3, 0]]) window= 3 - 5
+pop 3 deque([[5, 1], [3, 0]]) window= 3 - 5
+push 6 deque([[6, 2]]) window= 4 - 6
+pop 6 deque([[6, 2]]) window= 4 - 6
+push 7 deque([[7, 2]]) window= 5 - 7
+pop 7 deque([[7, 2]]) window= 5 - 7
+"""
