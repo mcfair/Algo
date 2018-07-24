@@ -39,27 +39,27 @@ class Solution(object):
 #Another solution, keep track of value and distance/count
 class Monoqueue:
     def __init__(self):
-        self.dqueue = []
+        self.dq = collections.deque()
         #each item in the dqueue is [val, dist]
         #val: the actual value, 
         #dist: distance (how many elements were deleted) between it and the one before it. 
-        #0 distance means right next to each other
+        #distance of the leftmost element (the max) in dq means the distance between the max and the window left boundary
 
     def push(self, val):
         count = 0
-        while len(self.dqueue) > 0 and self.dqueue[-1][0] < val:
-            count += self.dqueue[-1][1] + 1
-            self.dqueue.pop()
-        self.dqueue.append([val, count])   
+        while len(self.dq) > 0 and self.dq[-1][0] < val:
+            count += self.dq[-1][1] + 1
+            self.dq.pop()
+        self.dq.append([val, count])   
 
     def getMax(self):
-        return self.dqueue[0][0]
+        return self.dq[0][0]
 
     def pop(self):
-        if self.dqueue[0][1] > 0:
-            self.dqueue[0][1] -= 1
+        if self.dq[0][1] > 0:
+            self.dq[0][1] -= 1
             return
-        self.dqueue.pop(0)
+        self.dq.popleft()
         
         
 class Solution(object):
@@ -80,13 +80,15 @@ class Solution(object):
         #preload first k-1 items
         for ii in range(k-1):
             mq.push(nums[ii])
-            print "push" , nums[ii], mq.dqueue
+            print "push" , nums[ii], mq.dq
         
         #get the moving max for all sliding windows.
         maxval = []
         for ii in range(k-1 , len(nums)):
             mq.push(nums[ii])            #push the item
+            print "push" , nums[ii], mq.dq, "window= %d - %d"%(ii-k+1, ii)
             maxval.append(mq.getMax())   #get the max for the window
+            print "pop" , nums[ii], mq.dq,"window= %d - %d"%(ii-k+1, ii)
             mq.pop()                     #pop the first item
           
         return maxval
