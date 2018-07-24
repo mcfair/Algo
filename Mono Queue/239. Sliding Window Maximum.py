@@ -1,5 +1,43 @@
-class Monoqueue:
+#Huahua's solution, only push value in, keep track of window size
+class MaxQueue(object):
+    def __init__(self):
+        self.q_ = collections.deque()
 
+    def push(self, e):
+        while self.q_ and e > self.q_[-1]: 
+            self.q_.pop()
+        self.q_.append(e)
+
+    def pop(self):
+        self.q_.popleft()
+
+    def max(self):
+        return self.q_[0]
+    
+class Solution(object):
+    def maxSlidingWindow(self, nums, k):
+        
+        if not nums: return []
+        
+        q = MaxQueue()
+        
+        #preload first k-1 items, no pop
+        k = min(k, len(nums))
+        for i in range(k-1):
+            q.push(nums[i])
+         
+        #calculate moving max 
+        ans = []
+        for i in range(k-1, len(nums)):
+            q.push(nums[i])
+            ans.append(q.max())
+            if nums[i - k + 1] == q.max(): 
+                q.pop()
+        return ans
+
+    
+#Another solution, keep track of value and distance/count
+class Monoqueue:
     def __init__(self):
         self.dqueue = []
         #each item in the dqueue is [val, dist]
