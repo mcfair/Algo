@@ -1,6 +1,11 @@
 class Monoqueue:
+
     def __init__(self):
         self.dqueue = []
+        #each item in the dqueue is [val, dist]
+        #val: the actual value, 
+        #dist: distance (how many elements were deleted) between it and the one before it. 
+        #0 distance means right next to each other
 
     def push(self, val):
         count = 0
@@ -29,17 +34,21 @@ class Solution(object):
 
         if len(nums) < 1:
             return []
-
-        retval = []
+   
         mq = Monoqueue()
 
         k = min(k, len(nums))
-
+        
+        #preload first k-1 items
         for ii in range(k-1):
             mq.push(nums[ii])
-
+            print "push" , nums[ii], mq.dqueue
+        
+        #get the moving max for all sliding windows.
+        maxval = []
         for ii in range(k-1 , len(nums)):
-            mq.push(nums[ii])
-            retval.append(mq.getMax())
-            mq.pop()
-        return retval
+            mq.push(nums[ii])            #push the item
+            maxval.append(mq.getMax())   #get the max for the window
+            mq.pop()                     #pop the first item
+          
+        return maxval
