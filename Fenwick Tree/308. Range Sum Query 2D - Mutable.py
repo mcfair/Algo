@@ -1,3 +1,10 @@
+#Fenwick Tree distributes partial sum to a series of slots which satifsfiies i += lowbit(i), 
+#where i is the index in BIT array.
+
+#2D Fenwick Tree has a 2D spatial distribution, and the contributing slots are all possible combinations of two sets x and y, 
+#where x = [ i += lowbit(i) ], y = [ j +=lowbit(j) ]. Therefore, we need a nested for loop to update self.bit[i][j]
+
+
 class NumMatrix(object):
     def __init__(self, matrix):
         if not matrix or not matrix[0]:
