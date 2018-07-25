@@ -24,12 +24,12 @@ class Solution(object):
         #sort the unique numbers and map them to rank: 0 ~ m
         rank = {v: i for i, v in enumerate(sorted(set(nums)))}
         
-        tree  = BinaryIndexedTree(len(rank)) 
+        freq  = BinaryIndexedTree(len(rank)) 
         ret = [ ]
         
         #O(nlogm)
         #scan from right to left
         for x in nums[::-1]:
-            ret += tree.query(rank[x]),
-            tree.update(rank[x] + 1 , 1)
+            ret += freq.query(rank[x]),
+            freq.update(rank[x] + 1 , 1)
         return ret[::-1]
