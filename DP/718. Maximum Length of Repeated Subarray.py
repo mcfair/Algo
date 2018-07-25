@@ -4,6 +4,8 @@
 #dp[i+1][j+1] = dp[i][j] + 1
 #need to build the solution diagonally
 
+#Another follow up is return the subarray itself.
+
 class Solution(object):
     def findLength(self, A, B):
         """
