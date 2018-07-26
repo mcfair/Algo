@@ -32,11 +32,11 @@ class Solution(object):
     def isValid(self,i,j,d):
         #check row and col
         for k in range(9):
-            if (self.board[i][k]==d and k!=j) or (self.board[k][j]==d and k!=i):
+            if self.board[i][k]==d  or  self.board[k][j]==d :
                 return False
         #check box
         for k in range(i-i%3,i-i%3+3):
             for l in range(j-j%3,j-j%3+3):
-                if self.board[k][l]==d and k!=i and l!=j:
+                if self.board[k][l]==d:
                     return False
         return True
