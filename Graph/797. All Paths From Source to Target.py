@@ -7,11 +7,9 @@ class Solution(object):
         self.graph = graph
         self.ans = []
         self.findpath(0, [0])
-        return self.ans
-        
+        return self.ans       
         
     def findpath(self, node, path):
-        
         if node == len(self.graph)-1:
             self.ans.append(path)
             return
