@@ -6,12 +6,11 @@ class Solution(object):
         """
         a, b = 0, 0 # the result to the problem
         
-        #1-liner solution for Leetcode136 Single Number
+        #solution for Leetcode136 Single Number
         #here it returns the XOR result of two single numbers 
         mask = reduce(operator.xor, nums)
         
-        #get the lowest set bit 
-        #here we know that a, b are different at this bit
+        #get the lowest set bit, and we know that a, b are different at this bit
         mask = self.lowbit(mask) 
         
         #Now, nums can be partitioned into two groups according to their bits at location i.
