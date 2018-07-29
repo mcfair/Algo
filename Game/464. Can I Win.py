@@ -8,6 +8,7 @@ class Solution(object):
         """
         #if sum(1..m) < total, nobody can win
         if m*(m+1)/2 <total: return False
+        if m*(m+1)/2 ==total: return m%2==1 #whoever has the last hand wins
         self.memo = {}
         return self._canwin(range(1,m+1), total)
     
