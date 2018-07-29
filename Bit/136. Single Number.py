@@ -1,6 +1,6 @@
 #Naive solution is to just count the array, and find the single number. O(n) time with extra space O(k)
 
-#Solution based on bit manupilation is O(1) space.
+#Solution based on bit manupilation is O(1) space, O(n) time
 #Logic: XOR will return 1 only on two different bits. So if two numbers are the same, XOR will return 0. 
 #A ^ A = 0 and A ^ B ^ A = B.  Finally only one number left. 
 #This only works for even number of A, so it doesn't solve Leetcode137. Single Number II
@@ -12,3 +12,9 @@ class Solution(object):
         :rtype: int
         """  
         return reduce(lambda x, y: x ^ y, nums)
+        #return reduce(operator.xor, nums)  #same as above
+   
+#use set, but it takes extra space
+class Solution(object):        
+    def singleNumber3(self, nums):
+        return 2*sum(set(nums))-sum(nums)
