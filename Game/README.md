@@ -1,1 +1,1 @@
-### Most of game problems can be solved using the top-down DP approach, which "brute-forcely" simulates every possible state of the game.
+### Most of game problems can be solved by using the top-down DP approach (memoization), which "brute-forcely" simulates every possible state of the game. Memoization can reduce the time complexity from O(n!) to O(2^n).
