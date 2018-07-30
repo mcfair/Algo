@@ -1,3 +1,19 @@
+#Iterative
+class Solution(object):
+    def permute(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        if len(nums)<=1: return [nums]
+        
+        ans = [[]]
+        for x in nums:
+            ans = [l[:i]+[x]+l[i:]
+                   for l in ans
+                   for i in xrange(len(l)+1)]
+        return ans
+
 #Solution 1: Recursive, take any number as first -Stefan
 class Solution(object):
     def permute(self, nums):
