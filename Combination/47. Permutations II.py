@@ -1,15 +1,16 @@
 # To handle duplication, just avoid inserting a number before any of its duplicates.
 class Solution(object):
     def permuteUnique(nums):
-            ret = [[]]
-            for n in nums:
-                temp = []
-                for item in ret:
-                    for i in xrange(len(item) + 1):
-                        temp += item[:i] + [n] + item[i:],
-                        if i < len(item) and item[i] == n:
-                            break
-                ret = temp
+        if not nums: return [[]]
+        ret = [[]]
+        for n in nums:
+            temp = []
+            for item in ret:
+                for i in xrange(len(item) + 1):
+                    temp += item[:i] + [n] + item[i:],
+                    if i < len(item) and item[i] == n:
+                        break
+            ret = temp
             
  class Solution(object):
     def permuteUnique(self, nums):
