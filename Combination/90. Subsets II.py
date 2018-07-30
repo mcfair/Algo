@@ -12,8 +12,7 @@ class Solution(object):
         for num in nums:
             result +=[[num] + pre for pre in result]
         return result
-        
-               
+                      
         """
         print [[num] + pre for pre in result]
         [[1]]
