@@ -1,3 +1,5 @@
+#O(|E|*maxPathLength), where |E| is number of edges
+#there are total |E| calls to dfs function, and each call performs a copy of path, which takes O(pathLength) time.
 class Solution(object):
     def allPathsSourceTarget(self, graph):
         """
