@@ -5,8 +5,6 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-        if len(nums)<=1: return [nums]
-        
         ans = [[]]
         for x in nums:
             ans = [l[:i]+[x]+l[i:]
