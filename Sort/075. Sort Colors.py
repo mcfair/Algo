@@ -1,3 +1,12 @@
+#idea is that we know exactly how many colors (0, 1,2) are there. So no need to swap.
+#naive way is couting sort, cout the numbers of each color and then generate the sorted array based on count. O(2n)
+#another way is to find the ending location of 0s, 1s, 2s repcetively, which is equivalent to find out the counts.
+#Here is the math:
+#a 0 will move all pointers to the right by 1
+#a 1 will move n1 and n2 to the right by 1
+#a 2 will only move n2 to the right 1
+#while finding out the new location, filling the array with corresponding number.
+
 class Solution(object):
     def sortColors(self, nums):
         """
@@ -22,9 +31,7 @@ class Solution(object):
                 # a TWO will only affect n2 
                 n2 = n2+1
                 nums[n2] = 2
-                
-            print nums
- 
+       
     
     
  
