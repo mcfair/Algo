@@ -18,10 +18,12 @@ class Solution(object):
             fast = fast.next.next
             left,  left.next, slow   = slow,  left , slow.next
         
-  
-        #If the length of the linked list is odd
+        #if linked list is even length, slow starts from the next half
+        #if linked list is odd length, slow points to the center of the list
+        #how to find out the list is even or odd length? check fast.
+        #if fast is not None, length is odd, otherwise even.
         if fast:
-            slow = slow.next
+            slow = slow.next #for odd case, move slow pointer to the right by 1
             
         #Compare the reversed left half ('left') with the right half ('slow').
         while slow and left.val == slow.val:
