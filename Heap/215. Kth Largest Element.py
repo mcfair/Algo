@@ -1,6 +1,5 @@
-#heapify takes O(n)
-#heappop takes O(logn)
-#so total it takes O(klogn), k is guarenteed < n/2
+#Note: this heap solution is not the best solution, which can be linear O(n)
+#O(klogn) time, k is guarenteed < n/2
 #better than sort solution which takes O(nlogn): first sort then return nums[n-k]
 
 class Solution(object):
