@@ -1,10 +1,7 @@
 #Iterative
 class Solution(object):
     def permute(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
+
         ans = [[]]
         for x in nums:
             ans = [l[:i]+[x]+l[i:]
@@ -15,10 +12,7 @@ class Solution(object):
 #Solution 1: Recursive, take any number as first -Stefan
 class Solution(object):
     def permute(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
+
         if len(nums)<=1: return [nums]
         
         return [[x] + p
@@ -28,10 +22,7 @@ class Solution(object):
 #Solution 2: Recursive, insert first number anywhere -Stefan
 class Solution(object):
     def permute(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
+ 
         if len(nums)<=1: return [nums]
         
         return [p[:i] + [nums[0]] + p[i:]
@@ -41,10 +32,7 @@ class Solution(object):
 #My naive DFS implementation, same logic as Solution 1
 class Solution(object):
     def permute(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
+        
         #return [x for x in itertools.permutations(nums)]
         def dfs(picked):
             if len(picked)==len(nums):
