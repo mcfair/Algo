@@ -49,3 +49,24 @@ class Solution(object):
             return res
 
     
+#passing index instead of array
+class Solution(object):
+    def combinationSum(self, candidates, target):
+        """
+        :type candidates: List[int]
+        :type target: int
+        :rtype: List[List[int]]
+        """
+        #coin change - use only once -
+        candidates.sort()
+        combo = []
+        def dfs(target,k,bag):
+            if target<0: return
+            if target==0:         
+                combo.append(bag)
+                return
+            for i, c in enumerate(candidates[k:],k): 
+                dfs(target-c, i, bag+[c])
+        
+        dfs(target, 0, [])
+        return combo
