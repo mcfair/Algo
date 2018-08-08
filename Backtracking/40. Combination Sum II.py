@@ -12,7 +12,6 @@ class Solution(object):
         def dfs(target,k,bag):
             if target<0: return
             if target==0:
-                #bag= tuple(sorted(bag))
                 combo.append(bag)
                 return
             
@@ -24,6 +23,27 @@ class Solution(object):
         dfs(target, 0, [])
         return combo
         
+#compare and contrast with Combination Sum I.
+class Solution(object):
+    def combinationSum(self, candidates, target):
+        """
+        :type candidates: List[int]
+        :type target: int
+        :rtype: List[List[int]]
+        """
+        #coin change - use only once -
+        candidates.sort()
+        combo = []
+        def dfs(target,k,bag):
+            if target<0: return
+            if target==0:         
+                combo.append(bag)
+                return
+            for i, c in enumerate(candidates[k:],k): 
+                dfs(target-c, i, bag+[c])
+        
+        dfs(target, 0, [])
+        return combo
 
 class Solution(object):
     def combinationSum2(self, candidates, target):
