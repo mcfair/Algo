@@ -25,3 +25,27 @@ class Solution(object):
         combo = []
         find(target,  [])
         return combo
+
+#another way to strictly removed the duplicates without compare
+#when searching with for loop, never check the node backward.
+  
+ class Solution(object):
+    def combinationSum(self, candidates, target):
+            """
+            :type candidates: List[int]
+            :type target: int
+            :rtype: List[List[int]]
+            """
+            def dfs(candidates, target, path):
+                if target < 0:
+                    return
+                if target == 0:
+                    res.append(path)
+                    return
+                for i in xrange(len(candidates)):
+                    dfs(candidates[i:],target-candidates[i],path+[candidates[i]] )                
+            res = []
+            dfs(candidates, target,[] )
+            return res
+
+    
