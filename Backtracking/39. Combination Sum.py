@@ -57,7 +57,6 @@ class Solution(object):
         :type target: int
         :rtype: List[List[int]]
         """
-        #coin change - use only once -
         candidates.sort()
         combo = []
         def dfs(target,k,bag):
