@@ -6,16 +6,11 @@
 #         self.right = None
 
 #!!! DFS function can return any number of variables for your need.
-
+#
+#        Use dfs function "check" to return two things :
+#        (1)tree_height and (2)whether subtree is balanced
 class Solution(object):
     def isBalanced(self, root):
-        """
-        :type root: TreeNode
-        :rtype: bool
-        
-        Use dfs function "check" to return two things :
-        (1)tree_height and (2)whether subtree is balanced
-        """
          
         def check(node):
             #return (tree_height, balanced_boolean)
