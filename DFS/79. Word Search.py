@@ -1,6 +1,5 @@
 class Solution(object):
     def exist(self, board, word):
- 
         #O(4^|word|)
         def dfs(i,j, k):
             if not 0<=i<m or not 0<=j<n or board[i][j]!= word[k] or (i,j) in visited:
@@ -30,7 +29,6 @@ class Solution(object):
     
     
 class Solution(object):
-
     def exist(self, board, word):
  
         def find(i,j, word):
