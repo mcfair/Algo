@@ -1,6 +1,6 @@
 class Solution(object):
     def exist(self, board, word):
-        #O(4^|word|)
+        #O(4^|word|). time complexity of DFS is branch^depth
         def dfs(i,j, k):
             if not 0<=i<m or not 0<=j<n or board[i][j]!= word[k] or (i,j) in visited:
                 return False
