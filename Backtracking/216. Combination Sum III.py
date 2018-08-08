@@ -8,18 +8,19 @@ class Solution(object):
         :type n: int
         :rtype: List[List[int]]
         """
-        if n< k*(k+1)/2: return []
-        ans = []
+        if n < k*(k+1)/2: 
+            return []
+        
         def dfs(bag, m):
-            if len(bag)==k:
-                if sum(bag)==n:
-                    ans.append(bag)
+            if len(bag)==k and sum(bag)==n:
+                ans.append(bag) 
                 return
-            for i in range(m+1,10):
-                #pick from the right side of index i, to avoid double counting
-                dfs(bag+[i], i)
             
-        dfs([], 0)
+            for i in range(m,10):
+                dfs(bag+[i], i+1) #pick from right side to avoid duplicates
+                
+        ans = []
+        dfs([],1)
         return ans
             
             
