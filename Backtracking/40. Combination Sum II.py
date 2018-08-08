@@ -24,6 +24,7 @@ class Solution(object):
         return combo
         
 #compare and contrast with Combination Sum I.
+#coin change - unlimited quantity
 class Solution(object):
     def combinationSum(self, candidates, target):
         """
@@ -31,7 +32,7 @@ class Solution(object):
         :type target: int
         :rtype: List[List[int]]
         """
-        #coin change - use only once -
+        
         candidates.sort()
         combo = []
         def dfs(target,k,bag):
