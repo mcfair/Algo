@@ -1,3 +1,5 @@
+#complete as many transactions as possible
+
 #This is Greedy, not DP
 class Solution(object):
     def maxProfit(self, prices):
