@@ -1,6 +1,8 @@
+
+#idea is to find max hisgoram for row[0~i]
 class Solution(object):
     def maximalRectangle(self, matrix):
-        #idea is to find max hisgoram for row[0~i]
+        
         if not matrix or not matrix[0]: 
             return 0
         
@@ -30,16 +32,15 @@ class Solution(object):
             maxa = max(area, maxa)
         return maxa
             
-            
-        
-    
+#naive solution is O(n^4) 2D range sum
+#use solution to largest are of histogram
+
+class Solution(object):
     def maximalRectangle2(self, matrix):
         """
         :type matrix: List[List[str]]
         :rtype: int
         """
-        #naive solution is O(n^4) 2D range sum
-        #use solution to largest are of histogram
 
         m = len(matrix)
         n = len(matrix[0])
