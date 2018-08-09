@@ -1,4 +1,5 @@
 #At most two transactions - actually it asks for maxsum of (max-min) of two subsets
+#Use the DP technique twice from left to right, then from right to left
 
 #simliar problems: Largest Area Histogram, 3 Non-overlapping continuos sum.
 
