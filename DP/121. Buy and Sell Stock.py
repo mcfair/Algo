@@ -1,5 +1,8 @@
+#At most one transaction - Another word, find max gap
+
 #keep track of the curmin - 'min price so far'
 #curgain = curprice - curmin
+
 class Solution(object):
     def maxProfit(self, prices):
         """
