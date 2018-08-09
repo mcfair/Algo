@@ -1,4 +1,7 @@
+#At most two transactions - actually it asks for maxsum of (max-min) of two subsets
+
 #simliar problems: Largest Area Histogram, 3 Non-overlapping continuos sum.
+
 class Solution(object):
     def maxProfit(self, prices):
         """
