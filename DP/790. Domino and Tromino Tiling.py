@@ -1,5 +1,6 @@
 #most difficult part is to find the state transition function
-#https://leetcode.com/problems/domino-and-tromino-tiling/discuss/116581/Detail-and-explanation-of-O(n)-solution-why-dpn2*dn-1+dpn-3
+#https://leetcode.com/problems/domino-and-tromino-tiling
+#/discuss/116581/Detail-and-explanation-of-O(n)-solution-why-dpn2*dn-1+dpn-3
         
 class Solution(object):
     def numTilings(self, N):
@@ -7,7 +8,7 @@ class Solution(object):
         :type N: int
         :rtype: int
         """
-        #f(0) = 1
+        #f(0) = 0
         #f(1) = 1
         #f(2) = 2
         #f(3) = 5
