@@ -1,3 +1,5 @@
+#count the number of islands after each addLand operation
+
 #Union Find - Stefan 240ms
 class Solution(object):
     
@@ -35,12 +37,9 @@ class Solution(object):
         :type positions: List[List[int]]
         :rtype: List[int]
         """
-        uf = UnionFind()
-        ret = []
-        for p in map(tuple, positions):
-            uf.add(p)
-            ret.append(uf.count)
-        return ret
+     
+        f = UnionFind(m,n)
+        return map(f.add, positions)
 
 #TLE myself TLE
 class UnionFind(object):
