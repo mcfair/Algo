@@ -1,4 +1,4 @@
-#Method 1, O(n), 32ms
+#Method 1, O(n), 32ms DECREASING Mono Queue
 #Similar to LC84 Largest Area in Histogram, which store increasing bars in a stack, then calculate area
 #This solution uses stack to save decreasing (incl. equal) bars, and then calculate area/water fill.
 class Solution(object):
