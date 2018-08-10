@@ -23,25 +23,27 @@ class Solution(object):
             l = i-1
             while height[i] <= height[l]:
                 L[i] = L[l]
-                l = L[l] -1 #skipping steps, instead of using l-=1
+                l = L[i] -1 #skipping steps, instead of using l-=1
              
         
         R = range(n+2) # right boundary
-        maxa = 0
         for i in range(n,0, -1):
             r = i+1
             while height[i] <= height[r]:
                 R[i] = R[r]
-                r = R[r] +1 # skipping steps, instead of using r+=1
-            w = R[i]-L[i]+1
-            maxa = max(maxa, w*height[i])  
-                
+                r = R[i] +1 # skipping steps, instead of using r+=1
+        
+        maxa =0
+        for i in range(n):
+            area = (R[i]-L[i]+1)*heights[i]
+            maxa = max(area, maxa)
+ 
         return maxa
     
     def largestRectangleArea2(self, height):
         #Method 2, O(n) 44ms
         #High level idea is the same as method 1: find the max spread of each bar
-        #we can use a stack to store left index
+        #we can use a increasing stack to store left index
         
         height.append(-1)
         stack, maxa = [-1], 0
