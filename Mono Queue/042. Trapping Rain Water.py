@@ -25,14 +25,9 @@ class Solution(object):
 
 
 #Method 2, O(n), 28ms
-#Start from two ends, the water level of each location 
-#depends on min(leftMax, rightMax)
+#Start from two ends, the water level of each location depends on min(leftMax, rightMax)
 class Solution(object):
     def trap(self, height):
-        """
-        :type height: List[int]
-        :rtype: int
-        """
         
         if len(height)<3: 
             return 0
