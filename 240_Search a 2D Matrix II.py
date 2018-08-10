@@ -1,4 +1,7 @@
 #O(m+n) 
+#matrix is sorted from left to right and from top to bottom
+#use top-right corner as pivot
+
 class Solution(object):
     def searchMatrix(self, matrix, target):
         """
