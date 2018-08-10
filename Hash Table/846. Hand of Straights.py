@@ -1,3 +1,6 @@
+#use sort to guarantee uniqueness
+#count from small number to large
+
 class Solution(object):
     def isNStraightHand(self, hand, W):
         """
