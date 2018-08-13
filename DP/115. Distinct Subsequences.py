@@ -2,6 +2,7 @@
 class Solution(object):
     def numDistinct(self, s, t): 
         #empty string is always a subsquence of any string 
+        if len(s)<len(t):return 0
         prev = [1]*(len(s)+1)
         
         #go row by row
