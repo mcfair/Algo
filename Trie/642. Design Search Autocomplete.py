@@ -8,12 +8,12 @@ class Trie:
             if c not in curr:
                 curr[c] = {}
             curr = curr[c]
+        
         if '$' not in curr:
-            curr['$']=-freq
-            
+            curr['$'] = -freq
+            curr['#']=word
         else:
-            curr['$']-=freq
-        curr['#']=word
+            curr['$'] -= freq
         
     def search(self, prefix):
         curr = self.root
@@ -26,7 +26,6 @@ class Trie:
     def dfs(self, root):
         #return all autocomplete words
         ret = []
-      
         if '#' in root:
             ret.append([root['$'], root['#']])
         for c in root:
