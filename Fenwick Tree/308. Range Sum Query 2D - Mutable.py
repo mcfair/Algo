@@ -36,7 +36,7 @@ class NumMatrix(object):
                 self.bit[i][j] += delta
                 
     #cum sum from (0,0) to (i,j)
-    def cumsum(self,i,j):
+    def query(self,i,j):
         x, y =[], []
 
         while i>0:
@@ -59,8 +59,8 @@ class NumMatrix(object):
     #need add 1 to row2, col2, because Fenwick tree index starts from 1.
     def sumRegion(self, row1, col1, row2, col2):
         row2, col2 = row2+1, col2+1
-        return self.cumsum(row2,col2) + self.cumsum(row1,col1) \
-             -self.cumsum(row1,col2) - self.cumsum(row2,col1)
+        return self.query(row2,col2) + self.query(row1,col1) \
+             -self.query(row1,col2) - self.query(row2,col1)
     
     
  
