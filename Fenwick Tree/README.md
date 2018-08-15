@@ -1,3 +1,5 @@
+A Fenwick tree is a wonderful data structure that supports two operations on an array: increment a given value by a given amount, and find the sum of a segment of values, both in O(log n) time.  
+
 ```
 class BinaryIndexedTree(object):
     #Fenwick Tree index starts from 1 (i.e. 2^0)
