@@ -12,7 +12,8 @@ class BinaryIndexedTree(object):
             self.sums[i] += delta
             i += self._lowbit(i)
     
-    #O(log n)
+    #O(log n), query returns the rangesum from 0 to i
+    #to find a segment sum, we use query(right) - query(left-1)
     def query(self, i):
         ret = 0
         while i > 0:
