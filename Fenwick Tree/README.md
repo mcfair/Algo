@@ -12,8 +12,8 @@ class BinaryIndexedTree(object):
             self.sums[i] += delta
             i += self._lowbit(i)
     
-    #O(log n), query returns the rangesum from 0 to i
-    #to find a segment sum, we use query(right) - query(left-1)
+    #O(log n), query returns the rangesum from 0 to i, it's actually "i-1" in original array
+    #to find a segment sum, we use query(right+1) - query(left), "+1" because Fenwick tree index starts from 1
     def query(self, i):
         ret = 0
         while i > 0:
