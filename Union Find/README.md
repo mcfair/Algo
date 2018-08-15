@@ -24,8 +24,8 @@
         if pa!=pb:
             ## union by rank (next 3 lines), let high rank be low rank's parent
             if rank[pa] < rank[pb]:
-                a, b = b, a
-            self.rank[a] += (self.rank[a] == self.rank[b])
+                pa, pb = pb, pa
+            self.rank[pa] += (self.rank[pa] == self.rank[pb])
                      
             self.parent[pb] = pa
             self.count-=1
