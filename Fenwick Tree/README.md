@@ -1,4 +1,4 @@
-A Fenwick tree is a wonderful data structure that supports two operations on an array: increment a given value by a given amount, and find the sum of a segment of values, both in O(log n) time.  
+A Fenwick tree is a data structure that supports two operations on an array: increment (add) a given value by a given amount, and find (query) the sum of a segment of values, both in O(log n) time.  
 
 ```
 class BinaryIndexedTree(object):
@@ -7,7 +7,7 @@ class BinaryIndexedTree(object):
         self.sums = [0] * (n + 1) 
         
     #O(log n)
-    def update(self, i, delta):
+    def add(self, i, delta):
         while i < len(self.sums):
             self.sums[i] += delta
             i += self._lowbit(i)
