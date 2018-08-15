@@ -1,7 +1,7 @@
 ```
 class BinaryIndexedTree(object):
     def __init__(self, n):
-        self.sums = [0] * (n + 1)
+        self.sums = [0] * (n + 1) #Fenwick Tree index starts from 1 (i.e. 2^0)
 
     def update(self, i, delta):
         while i < len(self.sums):
