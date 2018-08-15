@@ -18,7 +18,7 @@ class SegmentTree(object):
         if start == end:
             return root
             
-        mid = (start+end) / 2
+        mid = (start+end) // 2
         root.left = self.buildTree(start, mid)
         root.right = self.buildTree(mid+1, end)
         
