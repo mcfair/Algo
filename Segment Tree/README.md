@@ -1,3 +1,4 @@
+```
 class SegmentTreeNode(object):
     def __init__(self, val, start, end):
         self.val = val
@@ -41,3 +42,4 @@ class SegmentTree(object):
         if start <= root.start and end >= root.end:
             return root.val
         return self.sum(start, end, root.left) + self.sum(start, end, root.right)
+```
