@@ -1,49 +1,44 @@
 class NumArray(object):
 
     def __init__(self, nums):
-        self.n = len(nums)
-        self.bit = [0] * (self.n + 1)
+        """
+        :type nums: List[int]
+        """
         self.nums = nums
-
-        for i in xrange(self.n):
-            self.add(i + 1, nums[i])
-
-
-    def add(self,j,delta):
-        #add delta
-        while j <= self.n:
-            self.bit[j] += delta
-            j += j & -j
-
-    def cumsum(self,j):
-        res = 0
-        while j >0:
-            res += self.bit[j]
-            j -= j &-j
-        return res
-    
-
+        self.bit = [0]*(len(nums)+1)
+        for i,x in enumerate(nums):
+            self._add(i+1, x)
+        
+    def _add(self, i, delta):
+        while i<len(self.bit):
+            self.bit[i]+=delta
+            i += (i&-i)
+        
+    def _query(self, i):
+        cumsum = 0
+        while i>0:
+            cumsum += self.bit[i]
+            i -= (i&-i)
+        return cumsum
+        
     def update(self, i, val):
-        #update with absolute value
         """
         :type i: int
         :type val: int
-        :rtype: int
+        :rtype: void
         """
-        self.add(i + 1, val - self.nums[i])
+        delta = val - self.nums[i] 
+        self._add(i+1, delta)
         self.nums[i] = val
-
+        
     def sumRange(self, i, j):
         """
-        sum of elements nums[i..j], inclusive.
         :type i: int
         :type j: int
         :rtype: int
         """
-        if not self.nums: return  0
-        return self.cumsum(j+1) - self.cumsum(i)
-    
-
+        return self._query(j+1) - self._query(i)
+        
 
 
 # Your NumArray object will be instantiated and called as such:
