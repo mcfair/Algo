@@ -11,6 +11,7 @@ class Solution(object):
         g = collections.defaultdict(list)
         for nxt, pre in prerequisites:
             g[pre].append(nxt)
+            #g[nxt].append[pre], both lines will work
         
         visited = [0]*numCourses
         
