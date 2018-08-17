@@ -1,3 +1,18 @@
+"""
+If no dual parenets:
+    The problem reduces to LC684. Redundant Connection, just remove the last edge that forms the circle.
+
+
+If there is dual parents:
+	If there is no cycle, just return the second edge. 
+    (Note that you still need to traverse the entire graph to make sure there is no circle, NO early return)
+
+	If there is a cycle, due to nature of directed graph, only one of the dual edges is in the cycle.
+		- If you find a cycle with first edge, remove the first edge.  
+		- Otherwise, remove the second.
+"""
+
+
 class Solution(object):
     def findRedundantDirectedConnection(self, edges):
         """
