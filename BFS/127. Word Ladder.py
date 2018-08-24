@@ -8,27 +8,34 @@ class Solution(object):
         :type wordList: List[str]
         :rtype: int
         """
+        front = set([beginWord])
+        back = set([endWord])
+        words = set(wordList)
         
-        front, back, wordList = set([beginWord]), set([endWord]), set(wordList)
-        if endWord not in wordList: return 0
-        
-        wordList.discard(beginWord)
+        if endWord not in words: return 0
         
         dic = collections.defaultdict(list)
-        for word in wordList:
+        for word in words:
             for i in range(len(word)):
-                dic[word[:i] + "_" + word[i+1:]].append(word)
-                
-        dist = 2
+                dic[word[:i]+'_'+word[i+1:]].append(word)
+        
+        words -= front 
+        dist = 1
         while front:
-            front =  set(reduce(lambda x,y:x+y, 
-                                [dic[word[:i] + '_'+word[i+1:]] for word in front for i in range(len(word))]))
+            tmp = []
+            for word in front:
+                for i in range(len(word)):
+                    for nxtword in dic[word[:i]+'_'+word[i+1:]]:
+                        if nxtword in words:
+                            tmp.append(nxtword)
+           
+            front = set(tmp)
             
+            dist += 1
             if front & back:
                 return dist
-            dist+=1
-            if len(front) > len(back):
+            if len(back) < len(front):
                 front, back = back, front
-            wordList -=front
-        
+            words -= front    
         return 0
+        
