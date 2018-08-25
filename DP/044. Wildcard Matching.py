@@ -6,10 +6,14 @@ class Solution(object):
         :type p: str
         :rtype: bool
         """
+        m, n = len(s), len(p)
+        
+        if n - p.count('*') > m: return False #this line will make it AC, otherwise MLE
+        
         dp = collections.defaultdict(int)
         dp[0,0] = 1
         
-        m, n = len(s), len(p)
+        
         for j in range(n):
             if p[j]=='*' and dp[0,j]:
                 dp[0,j+1]=1
@@ -22,6 +26,8 @@ class Solution(object):
                     dp[i+1,j+1] = dp[i,j+1] or dp[i+1,j]
                 
         return  bool(dp[m,n])
+        
+
         
 # recursion + memorization
 class Solution(object):
