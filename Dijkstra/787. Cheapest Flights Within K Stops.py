@@ -20,3 +20,23 @@ class Solution(object):
                         heapq.heappush(heap, (price+g[i][j], stops+1, j, path+[j]))
                       
         return -1
+
+    
+"""
+DP, Bellman-Ford Algorithm
+O(N^2*K) time, O(N) space
+But this method is not scalalbe to any followup question
+"""
+
+class Solution(object):
+    def findCheapestPrice(self, n, flights, src, dst, K):
+ 
+        mp = [float('inf')]*n
+        mp[src] = 0
+        
+        for _ in range(K+1):
+            tmp = mp[:]
+            for u,v,price in flights:
+                tmp[v] = min(tmp[v], mp[u]+price)
+            mp = tmp
+        return mp[dst] if mp[dst] < float('inf') else -1
