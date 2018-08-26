@@ -1,13 +1,17 @@
 """
-Idea is the same as the two pointer solution of Trapping Rain Water I, the difference is that in a 1-D array, there are always two pointers to choose from and we only need to compare two pointers to know when to stop, but in a 2-D array, we have more candidate pointers to choose from, so a heap can help us, and a visited set can help us exclude visited points and check when to stop.
+Idea is the same as the two pointer solution of Trapping Rain Water I.
+In a 1-D array, we only need to compare two pointers to find the lower boundary, 
+In a 2-D array, we have more candidate pointers to choose from, so a heap can help us to always pick the shortest panel, 
+and a visited set can help us exclude visited points.
 https://www.youtube.com/watch?v=cJayBq38VYw&t=195s
 
 Imagine a case with 3x3 array
 5 8 9
 3 1 2
 4 7 6
-Push all bounary cells to heap. According to Wooden Bucket Theory, the effective boundary is determined by its min boundary 2.
-Use heap to pop out the minBoundary, water = max(0, minBoundary - centerHeight)
+Push all edge cells to heap as initial boundaries. 
+According to Wooden Bucket Theory, the effective boundary is determined by its shortest panel 2.
+Use heap to pop out the minPanel, water = max(0, minPanel - centerHeight)
 """
 class Solution(object):
     def trapRainWater(self, h):
@@ -32,10 +36,10 @@ class Solution(object):
         
         #shortest plank always determines the water amount
         while q:
-            shortestPlank, i, j = heapq.heappop(q)
+            minPanel, i, j = heapq.heappop(q)
             for x,y in ((i+1,j),(i-1,j),(i,j-1),(i,j+1)):
                 if 0<=x<m and 0<=y<n and (x,y) not in visited:
-                    water += max(0, shortestPlank - h[x][y])
-                    heapq.heappush(q,(max(h[x][y], shortestPlank), x, y))
+                    water += max(0, minPanel - h[x][y])
+                    heapq.heappush(q,(max(h[x][y], minPanel), x, y))
                     visited[x,y] = 1
         return water
