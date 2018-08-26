@@ -1,4 +1,5 @@
-"""
+""" 
+Heap: 60 ms
 Always swin into the smallest number that is 4-directionally adjacent to the ones we've visited.
 Keep a priority queue of which position we can walk in next. 
 When we reach the target, answer(waited time) is the largest number we've visited.
@@ -28,8 +29,8 @@ class Solution(object):
 
     
 """
-Union Find
-Idea: 
+Union Find: 140ms
+
 go through the grid by the order of its value grid[i][j] 
 increment time and union its reachable neighbours (grid[i][j] < t)
 """
