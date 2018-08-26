@@ -18,14 +18,15 @@
         while x!= self.parent[x]:
             x, self.parent[x] = self.parent[x], self.parent[self.parent[x]]
         return x
-        
-    def union(self,a,b):
-        pa, pb = self.find(a), self.find(b)
-        if pa!=pb:
-            ## union by rank (next 3 lines), let high rank be low rank's parent
-            if rank[pa] < rank[pb]:
-                pa, pb = pb, pa
-            self.rank[pa] += (self.rank[pa] == self.rank[pb])
-                     
-            self.parent[pb] = pa
+            
+    def union(self, x,y): #union by rank, let high rank be low rank's parent
+        x, y = self.find(x), self.find(y)
+        if x!=y:
+            if self.rank[x] > self.rank[y]:
+                self.papa[y] = x
+            elif self.rank[x] < self.rank[y]:
+                self.papa[x] = y
+            else:
+                self.papa[y] = x
+                self.rank[x] +=1               
             self.count-=1
