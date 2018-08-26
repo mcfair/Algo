@@ -40,3 +40,9 @@ class Solution(object):
                 tmp[v] = min(tmp[v], mp[u]+price)
             mp = tmp
         return mp[dst] if mp[dst] < float('inf') else -1
+
+ """
+ Closing Remarks
+ Dijkstra's worst case time complexity is O((|V|+|E|)log|V|), which is O(|V|^2logV) when E = V^2. 
+ For Bellman Ford, it's O(|V||E|), which is O(|V|^3).
+ """
