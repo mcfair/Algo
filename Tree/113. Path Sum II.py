@@ -1,3 +1,27 @@
+#another DFS  
+class Solution(object):
+    def pathSum(self, root, sumv):
+        """
+        :type root: TreeNode
+        :type sum: int
+        :rtype: List[List[int]]
+        """
+        if not root: return []
+        
+        ans = []
+        def dfs(node, v, path):
+            if not node.left and not node.right and v==sumv:
+                ans.append(path)
+                return 
+            if node.left:
+                dfs(node.left, v+node.left.val, path+[node.left.val])
+            if node.right:
+                dfs(node.right, v+node.right.val, path+[node.right.val])
+        dfs(root, root.val, [root.val])  
+        return ans
+            
+   
+                
 #DFS
 class Solution(object):
     def pathSum(self, root, sum):
