@@ -1,5 +1,5 @@
 """
-Union Find
+Union Find  140ms 
 Idea: 
 go through the grid by the order of its value grid[i][j] 
 increment time and union its reachable neighbours (grid[i][j] < t)
