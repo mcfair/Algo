@@ -1,3 +1,4 @@
+ ```
  class UnionFind(object):  
  
     def __init__(self):
@@ -19,7 +20,7 @@
             x, self.parent[x] = self.parent[x], self.parent[self.parent[x]]
         return x
             
-    def union(self, x,y): #union by rank, let high rank be low rank's parent
+     def union(self, x,y): #union by rank, let high rank be low rank's parent
         x, y = self.find(x), self.find(y)
         if x!=y:
             if self.rank[x] > self.rank[y]:
@@ -30,3 +31,4 @@
                 self.papa[y] = x
                 self.rank[x] +=1               
             self.count-=1
+```
