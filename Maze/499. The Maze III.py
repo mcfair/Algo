@@ -1,3 +1,15 @@
+"""
+Maze I: ask True or False
+Maze II: ask min steps
+Maze III: ask the path with min steps (backtrack)
+
+The code below can solve all Maze I, II, III
+Use minHeap to track of:
+  "nx, ny" turning point (required for all Maze I, II, III)
+  "nd" number of steps (new to MazeII, also can be used to speed up Maze I by 3x)
+  "path" string records path (new to Maze III)
+"""
+
 class Solution(object):
     def findShortestWay(self, maze, ball, hole):
         """
