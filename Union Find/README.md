@@ -3,14 +3,14 @@
  
     def __init__(self):
         self.parent={}
-        self.rank ={}
+        self.rank = collections.defaultdict(int)
         self.count =0
     
     def find(self,x):
         if x not in self.parent:
             self.parent[x] = x     
             self.count+=1
-            self.rank[x]=0
+            #self.rank[x]=0 #use defaultdict
             
         ## no path compression
         #return x if x==self.parent[x] else self.find(self.parent[x])
