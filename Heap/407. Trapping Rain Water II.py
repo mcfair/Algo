@@ -27,14 +27,14 @@ class Solution(object):
         water = 0
         q = []
         
-        #bounary cells are the planks of the water bucket
+        #edge cells are the panels of the water bucket
         for i in range(m):
             for j in range(n):
                 if i==0 or i==m-1 or j==0 or j==n-1:
                     heapq.heappush(q, (h[i][j],i,j))
                     visited[i,j] = 1
         
-        #shortest plank always determines the water amount
+        #shortest panel determines the water amount
         while q:
             minPanel, i, j = heapq.heappop(q)
             for x,y in ((i+1,j),(i-1,j),(i,j-1),(i,j+1)):
