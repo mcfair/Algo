@@ -3,7 +3,7 @@ The Maze I: return True or False
 The Maze II: return min steps
 """
 
-#DFS - time & space complexity is O(mn)
+#DFS - time & space complexity is O(mn) - 68ms
 class Solution:
     def hasPath(self, maze, start, destination):
         
@@ -26,4 +26,32 @@ class Solution:
             return False
         
         return dfs(start[0], start[1] )
+
+#BFS - 360ms 
+#mainbody inside while loop is exactly the same as DFS
+class Solution:
+    def hasPath(self, maze, start, destination):
+
+        Q = collections.deque([start])
+        n = len(maze)
+        m = len(maze[0])
+        dirs = ((0, 1), (0, -1), (1, 0), (-1, 0))
+
+        while Q: 
+            x, y = Q.popleft()
+            maze[x][y] = 'v'
+
+            if [x,y] == destination:
+                return True
+
+            for i, j in dirs:
+                row, col = x, y
+                while 0 <= row+i < n and 0 <= col+j < m and maze[row+i][col+j] != 1:
+                    row += i
+                    col += j
+              
+                if maze[row][col] == 0: #TLE without if statement
+                    Q.append((row, col))
+
+        return False
 
