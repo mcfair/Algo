@@ -23,14 +23,10 @@ class Solution(object):
             return False
                 
         return check(0,0)
-#iterative
+    
+#iterative - two pointers
 class Solution(object):
     def validWordAbbreviation(self, word, abbr):
-        """
-        :type word: str
-        :type abbr: str
-        :rtype: bool
-        """
 
         i = j = 0
         m, n = len(word), len(abbr)
