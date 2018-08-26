@@ -27,6 +27,27 @@ class Solution:
         
         return dfs(start[0], start[1] )
 
+#BFS + minHeap  108ms
+class Solution:
+    def hasPath(self, maze, start, destination):
+
+        Q = [[0]+start]
+        m, n = len(maze), len(maze[0])
+        dirs = ((1,0),(-1,0),(0,1),(0,-1))
+        
+        while Q:
+            d, x, y = heapq.heappop(Q)
+            if [x,y]==destination:
+                return True
+            maze[x][y]='v'
+            for i, j in dirs:
+                row, col, newd = x, y, d
+                while 0<=row+i<m and 0<=col+j<n and maze[row+i][col+j]!=1:
+                    row, col, newd = row+i, col+j, newd+1
+                if maze[row][col]==0:
+                    heapq.heappush(Q, (newd,row,col))  #take the shortest path
+        return False  
+  
 #BFS - 360ms 
 #mainbody inside while loop is exactly the same as DFS
 class Solution:
