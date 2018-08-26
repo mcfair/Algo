@@ -1,5 +1,5 @@
 """ 
-Heap: 60 ms
+Heap: 60 ms,  O(mnlog(mn))
 Always swin into the smallest number that is 4-directionally adjacent to the ones we've visited.
 Keep a priority queue of which position we can walk in next. 
 When we reach the target, answer(waited time) is the largest number we've visited.
@@ -29,8 +29,11 @@ class Solution(object):
 
     
 """
-Union Find: 140ms
+Union Find: 140ms, O(mn)
+with path compression, the time complexity should be O(n^2*alpha(n^2)), where alpha is inverse Ackermann function, 
+which is small and can be regarded as a constant. So it is fair to say the time complexity is O(n^2) or O(mn).
 
+idea:
 go through the grid by the order of its value grid[i][j] 
 increment time and union its reachable neighbours (grid[i][j] < t)
 """
