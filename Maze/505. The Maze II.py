@@ -14,7 +14,6 @@ class Solution(object):
         m, n = len(maze), len(maze[0])
         dirs = ((1,0),(-1,0),(0,1),(0,-1))
         
-        
         while Q:
             d, x, y = heapq.heappop(Q)
             if [x,y]==destination:
