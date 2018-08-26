@@ -20,7 +20,23 @@ class Solution(object):
         dfs(root, root.val, [root.val])  
         return ans
             
-   
+#another BFS
+class Solution(object):
+    def pathSum(self, root, sumv):
+
+        if not root: return []
+        ret = []
+        q = collections.deque([(root, sumv-root.val, [root.val])])
+        while q:
+            node, sums, path = q.popleft()  
+            if not node.left and not node.right and sums==0:
+                ret.append(path)
+            if node.left:
+                q.append([node.left, sums-node.left.val, path+[node.left.val] ])
+            if node.right:
+                q.append([node.right, sums-node.right.val, path+[node.right.val] ])
+        
+        return ret
                 
 #DFS
 class Solution(object):
