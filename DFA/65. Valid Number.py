@@ -29,9 +29,7 @@ class Solution(object):
             if c not in state[currentState]:
                 return False
             currentState = state[currentState][c]
-            
-            print currentState
-            
+             
         if currentState not in [3,5,8,9]:
             return False
         
