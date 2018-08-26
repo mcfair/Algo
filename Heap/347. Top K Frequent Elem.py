@@ -8,10 +8,9 @@ class Solution(object):
         """
         #O(n)
         cnt = collections.defaultdict(int)
-        for x in nums:
-            cnt[x] +=1 
-            
-        #O(n)  
+        for x in nums: cnt[x] +=1 
+        
+        #O(n)
         q = [(-cnt[i],i) for i in cnt]
         
         #O(nlogn)
