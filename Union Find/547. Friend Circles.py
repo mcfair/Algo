@@ -8,31 +8,36 @@ class Solution(object):
      
         if not M or not M[0]:
             return 0
-        m = len(M)
         
-        self.parent = {}
-        self.count = 0
-        
+        m = len(M) 
+        self.papa = {}
+        self.rank = {}
+        self.count= 0
         for i in range(m):
             for j in range(i,m):
                 if M[i][j]==1:
                     self.union(i,j)
-
         return self.count
-         
-    
-    def find(self,x):
-        if x not in self.parent:
-            self.parent[x] = x     
-            self.count+=1
-        #return x if x==self.parent[x] else self.find(self.parent[x])
-        while x!= self.parent[x]:
-            x, self.parent[x] = self.parent[x], self.parent[self.parent[x]]
-        return x
         
-    def union(self,a,b):
-        pa, pb = self.find(a), self.find(b)
-        if pa!=pb:
-            self.parent[pb] = pa
-            self.count-=1
-          
+    def find(self, x):
+        if x not in self.papa:
+            self.papa[x]=x
+            self.rank[x]=0
+            self.count +=1
+            
+        while x!=self.papa[x]:
+            x, self.papa[x] = self.papa[x], self.papa[self.papa[x]]
+            
+        return x
+    
+    def union(self,x,y):
+        x, y = self.find(x), self.find(y)
+        if x!=y:
+            if self.rank[x] < self.rank[y]:
+                self.papa[x] = y
+            elif self.rank[x] > self.rank[y]:
+                self.papa[y] = x
+            else:
+                self.papa[y] = x
+                self.rank[x] +=1
+            self.count -=1
