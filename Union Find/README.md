@@ -2,33 +2,29 @@
  class UnionFind(object):  
  
     def __init__(self):
-        self.parent={}
-        self.rank = collections.defaultdict(int)
+        self.papa = {}
+        self.rank = {}
         self.count =0
     
-    def find(self,x):
-        if x not in self.parent:
-            self.parent[x] = x     
-            self.count+=1
-            #self.rank[x]=0 #use defaultdict
+    def find(self, x):
+        if x not in self.papa:
+            self.papa[x]=x
+            self.rank[x]=0
+            self.count +=1
             
-        ## no path compression
-        #return x if x==self.parent[x] else self.find(self.parent[x])
-        
-        ## path compression
-        while x!= self.parent[x]:
-            x, self.parent[x] = self.parent[x], self.parent[self.parent[x]]
+        while x!=self.papa[x]:
+            x, self.papa[x] = self.papa[x], self.papa[self.papa[x]]   
         return x
-            
-     def union(self, x,y): #union by rank, let high rank be low rank's parent
+    
+    def union(self,x,y):
         x, y = self.find(x), self.find(y)
         if x!=y:
-            if self.rank[x] > self.rank[y]:
-                self.papa[y] = x
-            elif self.rank[x] < self.rank[y]:
+            if self.rank[x] < self.rank[y]:
                 self.papa[x] = y
+            elif self.rank[x] > self.rank[y]:
+                self.papa[y] = x
             else:
                 self.papa[y] = x
-                self.rank[x] +=1               
-            self.count-=1
+                self.rank[x] +=1
+            self.count -=1
 ```
