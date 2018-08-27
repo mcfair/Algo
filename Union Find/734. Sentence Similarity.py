@@ -1,6 +1,7 @@
 
-#Note that the similarity relation is not transitive
-#So this problem can't be solved by union-find, as it assumes transitivity
+#Note that the similarity relation is not transitive in the original question.
+#So this problem can't be solved by union-find, as it assumes transitivity.
+#Code is for practice.
 
 class Solution(object):
     def areSentencesSimilar(self, words1, words2, pairs):
