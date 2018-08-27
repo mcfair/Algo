@@ -1,6 +1,6 @@
 """
 This is a classical DP problem. Solve it with BFS+Heap for fun. 
-More importantly, the method below is easily extended to backtracking path. 
+More importantly, the method below is easily extended to backtrack path. 
 """
 
 class Solution(object):
