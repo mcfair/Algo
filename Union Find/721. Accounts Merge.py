@@ -42,3 +42,39 @@ class Solution(object):
             else:
                 self.papa[x] = y
                 self.rank[y] +=1
+
+                
+                
+                
+#DFS
+class Solution(object):
+    def accountsMerge(self, accounts):
+        """
+        :type accounts: List[List[str]]
+        :rtype: List[List[str]]
+        """
+        #Build Graph
+        graph = collections.defaultdict(list)
+        for i, acc in enumerate(accounts):
+            name = acc[0]
+            for email in acc[1:]: 
+                graph[email].append(i)
+        
+        def dfs(i):
+            if i in visited:
+                return
+            visited.add(i)
+            for email in accounts[i][1:]: 
+                emails.add(email)
+                for j in graph[email]:
+                    dfs(j)
+        
+        #Perform DFS         
+        visited, res = set(), []
+        for i, acc in enumerate(accounts):
+            if i in visited:
+                continue 
+            emails = set()
+            dfs(i)
+            res.append([acc[0]] + sorted(emails))
+        return res
