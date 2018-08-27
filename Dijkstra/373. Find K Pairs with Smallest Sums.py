@@ -1,5 +1,8 @@
 # BFS+Heap,  not Dijkstra Algo
 # O(k*logk) time
+
+https://leetcode.com/problems/find-k-pairs-with-smallest-sums/discuss/84629/BFS-Python-104ms-with-comments
+    
 class Solution(object):
     def kSmallestPairs(self, nums1, nums2, k):
  
