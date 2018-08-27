@@ -5,35 +5,38 @@ class Solution(object):
         :type words2: List[str]
         :type pairs: List[List[str]]
         :rtype: bool
-        """
-        if len(words1)!=len(words2): 
+        """  
+        if len(words1)!=len(words2):
             return False
         
-        self.parent = {}
-         
+        self.papa = {}
+        self.rank = {}
+        
         for a, b in pairs:
             self.union(a,b)
-
-        for i in xrange (len(words1)):
-            a,b = self.find(words1[i]), self.find(words2[i])
-            if a != b:
+        
+        for w1,w2 in zip(words1, words2):
+            if self.find(w1)!=self.find(w2):
                 return False
-            
         return True
     
-    def find(self, w):
-        if w not in self.parent:
-            self.parent[w] = w
+    def find(self, x):
+        if x not in self.papa:
+            self.papa[x]=x
+            self.rank[x]=0
             
-        ##no path compression   
-        #return w if self.parent[w] == w else self.find(self.parent[w])
-        
-        ##path compression
-        while self.parent[w]!=w:
-            self.parent[w], w = self.parent[self.parent[w]], self.parent[w]
-        return w
-        
-    def union(self, a,b):
-        pa, pb = self.find(a), self.find(b)
-        if pa!=pb:
-            self.parent[pa]=pb
+        while x!=self.papa[x]:
+            x, self.papa[x] = self.papa[x], self.papa[self.papa[x]]
+            
+        return x
+    
+    def union(self,x,y):
+        x, y = self.find(x), self.find(y)
+        if x!=y:
+            if self.rank[x] < self.rank[y]:
+                self.papa[x] = y
+            elif self.rank[x] > self.rank[y]:
+                self.papa[y] = x
+            else:
+                self.papa[y] = x
+                self.rank[x] +=1
