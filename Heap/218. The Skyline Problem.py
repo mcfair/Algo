@@ -28,7 +28,7 @@ class Solution(object):
         #"i" is the pointer to track buildings
         for x in x_positions:
             
-            #O(logn)
+            #O(logn) Remove irrelevant bulidings from heap
             #keep removing the tall buildings whose ending coordinate is less than x,
             #because buildings on the left are not relavent anymore. 
             #The while loop helps to find the tallest building that is on the right of x
@@ -39,7 +39,7 @@ class Solution(object):
             #This is called "Lazy deletion"
                 
             
-            #O(logn)
+            #O(logn) Add relevant buildings to heap
             #Push buildings that start at x to max_heap, in the "HeightAnrRight" format.
             #Increment the index "i"
             while i < n and b[i][0] == x:
