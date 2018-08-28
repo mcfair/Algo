@@ -1,13 +1,12 @@
-#64ms
-#The first methed is called "Sweep Line Method", basically scan from left to right.
+#64ms - O(n*log(n))
 #Note the input list is already sorted in ascending order by the left x position Li.
-
+#This is called "Sweep Line" Method
 import collections
 import heapq
 import operator
 
 class Solution(object):
-    HeightAndRight = collections.namedtuple('HeightAndRight', ['neg_h', 'right'])
+    HeightAndRight = collections.namedtuple('HAR', ['neg_h', 'right'])
 
     def getSkyline(self, b):
         # T(n) = O(n*log(n))
@@ -17,7 +16,7 @@ class Solution(object):
         i, n = 0, len(b)
         
         #sort the coordinates of all entering and exiting points, 
-        #which are potential critical points
+        #which are the x coordinate of potential critical points
         #removing duplicated x will help the speed litlle bit
         x_positions = sorted(list(set(
             map(operator.itemgetter(0), b) +
@@ -25,17 +24,24 @@ class Solution(object):
         ) ))
         
         #traverse all x from left to right
-        #main a max_heap which contains "HeightAndRight", the coordinate of exit points 
+        #main a max_heap which contains "HeightAndRight", tracking relavent tallest buliding. 
         #"i" is the pointer to track buildings
         for x in x_positions:
             
-            #keep removing the buildings whose ending coordinate is less than x,
-            #because buildings on the left are not relavent anymore.
+            #O(logn)
+            #keep removing the tall buildings whose ending coordinate is less than x,
+            #because buildings on the left are not relavent anymore. 
             #The while loop helps to find the tallest building that is on the right of x
             while max_heap and max_heap[0].right <= x:
                 heapq.heappop(max_heap)
+            #Note that shorter building on the left are not removed by the while loop above. 
+            #They will be removed later, otherwise it requires O(n) time to remove by key.
+            #This is called "Lazy deletion"
                 
-            #For buildings start at position x, push their (-height, right) to max_heap
+            
+            #O(logn)
+            #Push buildings that start at x to max_heap, in the "HeightAnrRight" format.
+            #Increment the index "i"
             while i < n and b[i][0] == x:
                 heapq.heappush(max_heap, self.HeightAndRight(-b[i][2], b[i][1]))
                 i += 1
@@ -43,12 +49,9 @@ class Solution(object):
             #Find the max height h
             h = -max_heap[0].neg_h if max_heap else 0
             
-            #[x,h] is the critical point if last building doesn't end at the same height
+            #[x,h] is the critical point if previous critical point doesn't end at the same height
             if not skyline or skyline[-1][1] != h:
                 skyline.append([x, h])
-            
-            print max_heap
-            print skyline
         
         return skyline
 
