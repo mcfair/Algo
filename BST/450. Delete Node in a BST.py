@@ -1,5 +1,4 @@
 class Solution(object):
-
     def deleteNode(self, root, key):
         if root is None:
             return None
