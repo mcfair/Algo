@@ -1,5 +1,11 @@
 A Fenwick tree is a data structure that supports two operations on an array: increment (add) a given value by a given amount, and find (query) the sum of a segment of values, both in O(log n) time.  
 
+https://www.youtube.com/watch?v=2SVLYsq5W8M&t=1037s
+ 
+https://www.youtube.com/watch?v=WbafSgetDDk&t=908s
+
+https://leetcode.com/problems/reverse-pairs/discuss/97268/General-principles-behind-problems-similar-to-%22Reverse-Pairs%22
+
 ```
 class BinaryIndexedTree(object):
     #Fenwick Tree index starts from 1 (i.e. 2^0)
