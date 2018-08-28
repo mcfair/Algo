@@ -1,12 +1,10 @@
-#Heap Sort is an in-place sorting algorithm with worst case and average complexity of O(nlogn).
+#Heap Sort is an in-place sorting algorithm using heap/priority queue.
 #The implementation uses Python built-in min heap to demonstrate the idea.
-#O(nlogn)
+#O(nlogn) - worst case and average complexity 
 import heapq
 def heap_sort(h):
-    heap = []
-    for value in h:
-        heapq.heappush(heap, value)
-    return [heapq.heappop(heap) for i in range(len(heap))]
+    h = heapq.heapify(h)
+    return [heapq.heappop(h) for i in range(len(h))]
 
 #Merge Sort is a Divide and Conquer algorithm. It divides input array in two halves, 
 #calls itself for the two halves and then merges the two sorted halves.
