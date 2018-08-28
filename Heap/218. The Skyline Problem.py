@@ -1,3 +1,4 @@
+#64ms
 #The first methed is called "Sweep Line Method", basically scan from left to right.
 #Note the input list is already sorted in ascending order by the left x position Li.
 
@@ -51,7 +52,7 @@ class Solution(object):
         
         return skyline
 
-#48ms
+#48ms Fastest
 #https://leetcode.com/problems/the-skyline-problem/discuss/124354/Python-87ms-beats-100-with-explanation
 """
 Nearly the same method as '715. Range Module', regarding each building [l, r, h] as an interval [l, r). 
