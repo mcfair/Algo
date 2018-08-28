@@ -11,9 +11,26 @@ def merge_sort(m):
   
     left = merge_sort(left)
     right = merge_sort(right)
-    #heapq.merge is used to merge two sorted array
+    
     return list(heapq.merge(left, right))
-
+    #heapq.merge is used to merge two sorted array, or use the function below
+def merge(left, right):
+    if not len(left) or not len(right):
+        return left or right
+ 
+    result = []
+    i, j = 0, 0
+    while (len(result) < len(left) + len(right)):
+        if left[i] < right[j]:
+            result.append(left[i])
+            i+= 1
+        else:
+            result.append(right[j])
+            j+= 1
+        if i == len(left) or j == len(right):
+            result.extend(left[i:] or right[j:])
+            break
+    return result
 #Quick Sort is a Divide and Conquer algorithm. 
 #It picks an element as pivot and partitions the given array around the picked pivot.
 #There are different ways of picking pivot: always first item, always last item, random item, or median
