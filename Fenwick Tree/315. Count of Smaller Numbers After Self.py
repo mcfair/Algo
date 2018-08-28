@@ -13,7 +13,7 @@ class Solution(object):
         #build the BIT using rank not absolute value
         #Vanilla BIT is used for cumulative/prefix sum
         #Here we use it store the cumulative occurance 
-        seen  = BinaryIndexedTree(len(rank)) 
+        seen = BinaryIndexedTree(len(rank)) 
         
         #O(nlogm)
         #traverse nums from right to left to compute "Smaller Numbers After Self"
