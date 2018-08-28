@@ -14,8 +14,27 @@ def merge_sort(m):
     #heapq.merge is used to merge two sorted array
     return list(heapq.merge(left, right))
 
-
-
+#Quick Sort is a Divide and Conquer algorithm. 
+#It picks an element as pivot and partitions the given array around the picked pivot.
+#There are different ways of picking pivot: always first item, always last item, random item, or median
+#O(nlogn) 
+def quickSort(arr):
+    if len(arr) <= 1:
+        return arr
+    less, more , pivotList  = [], [], []
+ 
+    pivot = arr[0]
+    for i in arr:
+        if i < pivot:
+            less.append(i)
+        elif i > pivot:
+            more.append(i)
+        else:
+            pivotList.append(i)
+    less = quickSort(less)
+    more = quickSort(more)
+    return less + pivotList + more
+    
 #=================================== Inefficient O^2 sort algorithms ======================================#
 
 #Bubble Sort works by repeatedly swapping the adjacent elements if they are in wrong order.
