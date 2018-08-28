@@ -1,3 +1,5 @@
+https://www.youtube.com/watch?v=2SVLYsq5W8M&t=1037s
+    
 #BIT aka Fenwick Tree
 class BinaryIndexedTree(object):
     def __init__(self, n):
