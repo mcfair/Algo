@@ -7,8 +7,9 @@ class Node(object):
 class BST(object):
     def __init__(self, root=None):
         self.root = root
+        
     def insert(self, node):
-        if self.root is None:
+        if not self.root:
             self.root = node
         else:
             if self.root.val < node.val:
@@ -21,3 +22,13 @@ class BST(object):
                     self.root.left = node
                 else:
                     self.insert(self.root.left, node)
+
+     def search(self, val):
+        if not self.root:
+            return None
+        if val == self.root.val:
+            return root
+        elif val < self.root.val:
+            return self.search(self.root.left, val)
+        elif val > self.root.val:
+            return self.search(self.root.right, val)
