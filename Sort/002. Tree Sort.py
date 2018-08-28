@@ -1,6 +1,6 @@
 #Idea is to build a BST, then do in-order traversal
 #Adding one item to a Binary Search tree on average takes O(log n) time.  
-#O(n log n) 
+#O(n log n) on averge, and O(n^2) worst case, imbalanced tree
 class BST:
     def __init__(self, val=None):
         self.left = None
@@ -26,3 +26,10 @@ class BST:
                 self.right = BST(val)
             else:
                 self.right.insert(val)
+
+ if __name__ =="__main__":
+    a = BST(1)
+    a.insert(2)
+    a.insert(3)
+    a.insert(0)
+    print a
