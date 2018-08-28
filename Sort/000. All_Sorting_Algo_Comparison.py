@@ -17,7 +17,7 @@ def merge_sort(m):
 #Quick Sort is a Divide and Conquer algorithm. 
 #It picks an element as pivot and partitions the given array around the picked pivot.
 #There are different ways of picking pivot: always first item, always last item, random item, or median
-#O(nlogn) 
+#O(nlogn) - Note the implementation below is not in-place.
 def quickSort(arr):
     if len(arr) <= 1:
         return arr
