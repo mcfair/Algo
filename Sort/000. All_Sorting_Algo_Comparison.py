@@ -1,3 +1,22 @@
+#Merge Sort is a Divide and Conquer algorithm. It divides input array in two halves, 
+#calls itself for the two halves and then merges the two sorted halves.
+#O(nlogn)
+def merge_sort(m):
+    if len(m) <= 1:
+        return m
+  
+    middle = len(m) // 2
+    left = m[:middle]
+    right = m[middle:]
+  
+    left = merge_sort(left)
+    right = merge_sort(right)
+    #heapq.merge is used to merge two sorted array
+    return list(heapq.merge(left, right))
+
+
+
+#=================================== Inefficient O^2 sort algorithms ======================================#
 
 #Bubble Sort works by repeatedly swapping the adjacent elements if they are in wrong order.
 #O(n^2)
@@ -33,3 +52,19 @@ def insertionSort(arr):
                 arr[j+1] = arr[j]
                 j -= 1
         arr[j+1] = key
+
+#Selection sort repeatedly finds the minimum element from unsorted part and put it at the beginning.    
+#It's more like a reverse process of bubble sort
+#O(n^2)
+def selectionSort(A):
+    # Traverse through all array elements
+    for i in range(len(A)):
+
+        # Find the index of minimum element in remaining unsorted array
+        min_idx = i
+        for j in range(i+1, len(A)):
+            if A[min_idx] > A[j]:
+                min_idx = j
+
+        # Swap the found minimum element with the current element        
+        A[i], A[min_idx] = A[min_idx], A[i]
