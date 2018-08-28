@@ -1,5 +1,5 @@
 Divide and Conquer
-Either (1) skip current position and increment count, or (2) include current position, and zero-out count
+Either (1) skip current position and increment count, or (2) include current position and zero-out count
 Once reach the end, append current to the result.
 ```
     def generateAbbreviations(self, word):
