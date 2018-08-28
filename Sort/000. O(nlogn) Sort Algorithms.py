@@ -1,3 +1,13 @@
+#Heap Sort is an in-place sorting algorithm with worst case and average complexity of O(nlogn).
+#The implementation uses Python built-in min heap to demonstrate the idea.
+#O(nlogn)
+import heapq
+def heap_sort(h):
+    heap = []
+    for value in h:
+        heapq.heappush(heap, value)
+    return [heapq.heappop(heap) for i in range(len(heap))]
+
 #Merge Sort is a Divide and Conquer algorithm. It divides input array in two halves, 
 #calls itself for the two halves and then merges the two sorted halves.
 #O(nlogn)
@@ -37,7 +47,7 @@ def merge(left, right):
 #It picks an element as pivot and partitions the given array around the picked pivot.
 #There are different ways of picking pivot: always first item, always last item, random item, or median
 #O(nlogn) - Note the implementation below is not in-place.
-def quickSort(arr):
+def quick_sort(arr):
     if len(arr) <= 1:
         return arr
     less, more , pivotList  = [], [], []
@@ -54,38 +64,4 @@ def quickSort(arr):
     more = quickSort(more)
     return less + pivotList + more
 
-#Heap Sort is an in-place sorting algorithm with worst case and average complexity of O(nlogn).
-def heapify(arr, n, i):
-    """Heap size n, rooted at i"""
-    largest = i  # Initialize largest as root
-    l = 2 * i + 1     # left = 2*i + 1
-    r = 2 * i + 2     # right = 2*i + 2
- 
-    # See if left child of root exists and is
-    # greater than root
-    if l < n and arr[i] < arr[l]:
-        largest = l
- 
-    # See if right child of root exists and is
-    # greater than root
-    if r < n and arr[largest] < arr[r]:
-        largest = r
- 
-    # Change root, if needed
-    if largest != i:
-        arr[i],arr[largest] = arr[largest],arr[i]  # swap
- 
-        # Heapify the root.
-        heapify(arr, n, largest)
-        
-def heapSort(arr):
-    n = len(arr)
- 
-    # Build a maxheap.
-    for i in range(n, -1, -1):
-        heapify(arr, n, i)
- 
-    # One by one extract elements
-    for i in range(n-1, 0, -1):
-        arr[i], arr[0] = arr[0], arr[i]   # swap
-        heapify(arr, i, 0)
+
