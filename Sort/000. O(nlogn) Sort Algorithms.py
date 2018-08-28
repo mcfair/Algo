@@ -2,9 +2,11 @@
 #The implementation uses Python built-in min heap to demonstrate the idea.
 #O(nlogn) - worst case and average complexity 
 import heapq
-def heap_sort(h):
-    h = heapq.heapify(h)
-    return [heapq.heappop(h) for i in range(len(h))]
+def heapsort(h):
+    heap = []
+    for value in h:
+        heapq.heappush(heap, value)
+    return [heapq.heappop(heap) for i in range(len(heap))]
 
 #Merge Sort is a Divide and Conquer algorithm. It divides input array in two halves, 
 #calls itself for the two halves and then merges the two sorted halves.
