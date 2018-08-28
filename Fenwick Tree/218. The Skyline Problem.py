@@ -11,9 +11,10 @@ class Solution(object):
             points += [left,right]
             endsAt[left] = right
         
+        
+        points = sorted(list(set(points))) #remove duplicates and sort
+        rank = {points[i]: i for i in range(len(points))} # sorted index as rank
         tree = BIT(len(points))
-        points.sort() #do we need to remove duplicates? verified, either way works
-        rank = {points[i]: i for i in range(len(points))} # sorted index
         
         ret = []
         for p in points:
