@@ -1,3 +1,6 @@
+Divide and Conquer
+Either (1) skip current position and increment count, or (2) include current position, and zero-out count
+Once reach the end, append current to the result.
 ```
     def generateAbbreviations(self, word):
         """
@@ -6,12 +9,10 @@
         """
         def helper( pos, count, abbr ):
             if pos == len(word):
-                # Once we reach the end, append current to the result
                 result.append(abbr + str(count) if count > 0 else abbr)
+            
             else:
-                # Skip current position, and increment count
                 helper( pos + 1, count + 1, abbr)
-                # Include current position, and zero-out count
                 helper( pos + 1, 0, abbr + (str(count) if count > 0 else '') + word[pos] )
 
         result = []
