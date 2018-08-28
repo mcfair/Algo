@@ -12,7 +12,7 @@ class Solution(object):
             endsAt[left] = right
         
         tree = BIT(len(points))
-        points.sort() #do we need to remove duplicates?
+        points.sort() #do we need to remove duplicates? verified, either way works
         rank = {points[i]: i for i in range(len(points))} # sorted index
         
         ret = []
