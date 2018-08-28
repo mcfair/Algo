@@ -14,6 +14,7 @@ def merge_sort(m):
     
     return list(heapq.merge(left, right))
     #heapq.merge is used to merge two sorted array, or use the function below
+    
 def merge(left, right):
     if not len(left) or not len(right):
         return left or right
@@ -54,9 +55,8 @@ def quickSort(arr):
     return less + pivotList + more
 
 #Heap Sort is an in-place sorting algorithm with worst case and average complexity of O(nlogn).
-
 def heapify(arr, n, i):
-    """ To heapify subtree rooted at index i. n is size of heap"""
+    """Heap size n, rooted at i"""
     largest = i  # Initialize largest as root
     l = 2 * i + 1     # left = 2*i + 1
     r = 2 * i + 2     # right = 2*i + 2
