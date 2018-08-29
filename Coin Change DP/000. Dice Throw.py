@@ -4,7 +4,7 @@ Given N dice each with M faces, numbered from 1 to M, find the number of ways to
 X is the summation of values on each face when all the dice are thrown.
 
 Idea:
-Coin Change with limitation
+Similar to coin change
 State Transistion Function: f(n, x) = f(n-1, x-1) + f(n-1, x-2) + ... + f(n-1, x-M)
 
 Time complexity is O(NMX)
