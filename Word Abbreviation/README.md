@@ -9,12 +9,12 @@ Once reach the end, append current to the result.
         :rtype: List[str]
         """
         def helper( pos, count, abbr ):
+            countstr = str(count) if count>0 else ''
             if pos == len(word):
-                result.append(abbr + str(count) if count > 0 else abbr)
-            
+                result.append(abbr + countstr)
             else:
                 helper( pos + 1, count + 1, abbr)
-                helper( pos + 1, 0, abbr + (str(count) if count > 0 else '') + word[pos] )
+                helper( pos + 1, 0, abbr + countstr + word[pos] )
 
         result = []
         helper(pos=0, count=0, abbr='')
