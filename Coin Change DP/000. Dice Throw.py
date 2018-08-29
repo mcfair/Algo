@@ -5,6 +5,7 @@ X is the summation of values on each face when all the dice are thrown.
 
 Idea:
 Coin Change with limitation
+State Transistion Function: f(n, x) = f(n-1, x-1) + f(n-1, x-2) + ... + f(n-1, x-M)
 
 Time complexity is O(NMX)
 """
@@ -15,8 +16,9 @@ def numOfWays(N, M, X):
       
     for i in range(2, N):
        for x in range(1, X):
-          for k in range(1, M):
-             if k<j:
-               ways[i][b] += ways[i-1][b-k]
+          for j in range(1, M):
+             if j<x:
+               ways[i][x] += ways[i-1][x-j]
+            
     return ways[N][X]
  
