@@ -1,8 +1,8 @@
 class Solution(object):
     def shortestDistance(self, grid):
-
-        if not grid or not grid[0]: return -1
-        
+ 
+        if not grid or not grid[0]:
+            return -1
         m, n = len(grid), len(grid[0])
         
         buildings = []
@@ -10,30 +10,30 @@ class Solution(object):
             for j in range(n):
                 if grid[i][j]==1:
                     buildings.append((i,j))
-        totalB = len(buildings)
-        dist = [[0]*n for _ in range(m)]
+        
         ## do BFS from each building, and decrement all empty place for every building visit
         ## when grid[i][j] == -totalB, it means that grid[i][j] are already visited from all buildings
         ## and use dist to record distances from buildings
         ## if certain cells can't reach all buildings, then the total dist shouldn't count.
-        def bfs(i, j, bIndex):
-            """walking from the bulding"""
+        def bfs(i, j, numVisits):
             queue = collections.deque([(i, j, 0)])
             while queue:
                 i, j, d = queue.popleft()
                 for x,y in [(i+1, j), (i-1, j), (i, j-1), (i, j+1)]:
-                    if 0<=x<m and 0<=y<n and grid[x][y]==bIndex:
+                    if 0<=x<m and 0<=y<n and grid[x][y]==numVisits:
                         dist[x][y] += d+1
                         grid[x][y] -= 1
                         queue.append((x, y, d+1))
 
-        bIndex = 0
+                        
+        dist = [[0]*n for _ in range(m)] #cumulative distance 
+        numVisits = 0                    #use it as a flag for pruning unaccesible cells
         for i, j in buildings:
-            bfs(i, j, bIndex)
-            bIndex -= 1
-        res = [dist[i][j] for i in range(m) for j in range(n) if grid[i][j]+totalB==0]
+            bfs(i, j, numVisits)
+            numVisits -= 1
+            
+        res = [dist[i][j] for i in range(m) for j in range(n) if grid[i][j]+len(buildings)==0]
         return min(res) if res else -1
-
 
 #Brutal Force TLE
 #to calculate distance first tihing comes to mind is BFS
