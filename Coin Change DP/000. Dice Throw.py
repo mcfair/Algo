@@ -10,7 +10,7 @@ State Transistion Function: f(n, x) = f(n-1, x-1) + f(n-1, x-2) + ... + f(n-1, x
 Time complexity is O(NMX)
 """
 def numOfWays(N, M, X):
-    ways = [[0]*(X+1) for _ in range(N)]
+    ways = [[0]*(X+1) for _ in range(N+1)]
     for i in range(1, min(M,X)+1):
        ways[1][i] =1
       
