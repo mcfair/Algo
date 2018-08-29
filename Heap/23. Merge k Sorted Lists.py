@@ -20,9 +20,9 @@ class Solution(object):
                 heapq.heappush(q,(head.val, head))
         while q:
             _, node = heapq.heappop(q)
-            pointer.next, node = node, node.next
+            pointer.next = node
             pointer = pointer.next
-            if node:
-                heapq.heappush(q, (node.val, node))
+            if node.next:
+                heapq.heappush(q, (node.next.val, node.next))
             
         return ret.next        
