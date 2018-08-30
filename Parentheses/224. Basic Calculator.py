@@ -1,6 +1,6 @@
 class Solution(object):
     def calculate(self, s):
-        s = s.strip()+'+' #''.join(s.split()+['+'])
+        s = s.strip()+'#' 
         stack = [1]
         lo = 0
         ret = 0
@@ -18,4 +18,5 @@ class Solution(object):
                 elif c == ')':
                     stack.pop()
                 lo = hi+1
+            
         return ret
