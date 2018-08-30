@@ -1,5 +1,8 @@
 #Divide and Conquer
 class Solution(object):
+    def __init__(self):
+        self.ops = {'+': operator.add, '-': operator.sub, '*': operator.mul} 
+    
     def diffWaysToCompute(self, input):
         """
         :type input: str
@@ -7,14 +10,13 @@ class Solution(object):
         """ 
         if input.isdigit():
             return [int(input)]
-        ops = {'+': operator.add, '-': operator.sub, '*': operator.mul} 
-    
+
         res = []
-        for i in xrange(len(input)):
-            if input[i] in "-+*":
+        for i, c in enumerate(input):
+            if c in "-+*":
                 res1 = self.diffWaysToCompute(input[:i])
                 res2 = self.diffWaysToCompute(input[i+1:])
                 for left in res1:
                     for right in res2:
-                        res.append(ops[input[i]](left,right))
+                        res.append(self.ops[c](left,right))
         return res
