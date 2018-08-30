@@ -1,3 +1,5 @@
+https://rcoh.me/posts/linear-time-median-finding/
+    
 def quickselect(l, k, pivot_fn):
     """
     Select the kth element in l (0 based)
