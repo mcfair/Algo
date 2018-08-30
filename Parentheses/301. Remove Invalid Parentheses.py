@@ -1,4 +1,5 @@
-
+#hard
+#beautiful BFS & filter
 class Solution(object):
     def removeInvalidParentheses(self, s):
         """
