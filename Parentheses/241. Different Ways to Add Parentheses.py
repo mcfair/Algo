@@ -1,3 +1,5 @@
+#with memo, O(n^3)
+#without memo, O(3^n)
 #Divide and Conquer, with memoization beats 100% 20ms
 class Solution(object):
     def __init__(self):
