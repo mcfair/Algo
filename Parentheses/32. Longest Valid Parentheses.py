@@ -37,3 +37,20 @@ class Solution:
                     stack = [0]
 
         return longest
+
+    
+#856. Score of Parentheses uses a very simple approach, using stack to store tmp values
+class Solution:
+    def scoreOfParentheses(self, S):
+        stack, res = [], 0
+        for c in S:
+            if c == "(":
+                stack.append(0)
+            else:
+                last = stack.pop()
+                add =  2 * last or 1
+                if stack:
+                    stack[-1] += add
+                else:
+                    res += add
+        return res
