@@ -1,6 +1,7 @@
 class Solution(object):
     def findMedianSortedArrays(self, num1, num2):
         def kth(  k, s1, e1, s2, e2):
+            #base cases
             if s1 == e1:
                 return num2[s2+k]
             if s2 == e2:
