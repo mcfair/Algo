@@ -35,7 +35,7 @@ class Solution(object):
         
 """
 path backtracking with slight modification
-it can also track index position instead of value
+it can also track path
 """
 class Solution(object):
     def minPathSum(self, grid):
