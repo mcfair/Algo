@@ -1,4 +1,8 @@
+"""
 https://rcoh.me/posts/linear-time-median-finding/
+pivot_fn = random.choice
+pivot_fn = lambda x: x[0]
+"""
     
 def quickselect(l, k, pivot_fn):
     """
