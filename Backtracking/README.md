@@ -143,6 +143,7 @@ Related to this two:
 31. Next Permutation: https://leetcode.com/problems/next-permutation/
 266. Palindrome Permutation: https://leetcode.com/problems/palindrome-permutation/
 ```
+    def generatePalindromes(self, s):
         kv = collections.Counter(s)
         mid = [k for k, v in kv.iteritems() if v%2]
         if len(mid) > 1: return []
@@ -160,7 +161,9 @@ Related to this two:
                 ans.append(cur + mid + cur[::-1])
             else:
                 for i in range(n):
-                    if visited[i] or (i>0 and half[i] == half[i-1] and not visited[i-1]):
+                    if visited[i]: 
+                        continue
+                    if i-1>=0 and half[i] == half[i-1] and not visited[i-1]:
                         continue
                     visited[i] = True
                     tmp.append(half[i])
