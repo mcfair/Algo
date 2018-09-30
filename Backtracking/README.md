@@ -33,7 +33,7 @@ https://leetcode.com/problems/combination-sum-ii/
         candidates.sort(reverse= True)
         backtrack(0, len(candidates), [], target)
         return ans
-        ```
+```
 78. Subsets
 https://leetcode.com/problems/subsets/
 ```
@@ -47,7 +47,7 @@ https://leetcode.com/problems/subsets/
         ans = []
         backtrack(0, len(nums), [])
         return ans
-        ```
+```
 90. Subsets II
 https://leetcode.com/problems/subsets-ii/
 ```
@@ -64,7 +64,7 @@ https://leetcode.com/problems/subsets-ii/
         nums.sort()
         backtrack(0, len(nums), [])
         return ans
-        ```
+```
 46. Permutations
 https://leetcode.com/problems/permutations/
 ```
@@ -80,7 +80,7 @@ https://leetcode.com/problems/permutations/
         ans = []
         backtrack(0, len(nums))
         return ans
-        ```
+```
 47. Permutations II
 https://leetcode.com/problems/permutations-ii/
 ```
@@ -102,7 +102,7 @@ https://leetcode.com/problems/permutations-ii/
         nums.sort()
         backtrack([], len(nums))
         return ans
-        ```
+```
 60. Permutation Sequence
 https://leetcode.com/problems/permutation-sequence/
 ```
@@ -119,7 +119,7 @@ https://leetcode.com/problems/permutation-sequence/
             ans.append(nums[id])
             nums.pop(id)
         return ''.join(ans)
-        ```
+```
 131. Palindrome Partitioning
 https://leetcode.com/problems/palindrome-partitioning/
 ```
@@ -136,7 +136,7 @@ https://leetcode.com/problems/palindrome-partitioning/
         ans = []
         backtrack(0, len(s), [])
         return ans
-        ```
+```
 267. Palindrome Permutation II
 https://leetcode.com/problems/palindrome-permutation-ii/
 Related to this two:
@@ -170,4 +170,4 @@ Related to this two:
         visited = [False] * len(half)
         backtrack(len(half), [])
         return ans
-        ```
+```
