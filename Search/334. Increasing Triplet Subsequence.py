@@ -1,4 +1,5 @@
 #O(n)
+#k is a constant, each search takes O(logk). O(log2)=O(log3)=1
 class Solution(object):
     def increasingTriplet(self, nums, k=3):
         """
@@ -11,5 +12,4 @@ class Solution(object):
             if i >= k - 1:
                 return True
             inc[i] = x
-            print inc
         return k == 0
