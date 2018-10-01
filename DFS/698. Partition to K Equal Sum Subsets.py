@@ -2,11 +2,13 @@
 Let's me further explain the two game changers in this solution:
 1, if sums[j] == 0: break
 "empty bucket" pruning
-The key is, sums[j] == 0 means for all k > j, sum[k] == 0; because this algorithm always fill the previous buckets before trying the next.
-So if by putting nums[i] in this empty bucket can't solve the game, putting nums[i] on other empty buckets can't solve the game too.
+When j is a empty bucket, for any m > j, sum[m]=0 (empty bucket).
+This is because this algorithm always fill the previous buckets before trying the next.
+So if by putting nums[i] in this empty bucket can't solve the game, putting nums[i] on other empty buckets can't either.
 
 2, nums.sort(reverse=True)
-Always start from big numbers for this kind of question, just by doing it yourself for a few times you will find out that the big numbers are the easiest to place.
+Always start from big numbers for this kind of question, 
+just by doing it yourself for a few times you will find out that the big numbers are the easiest to place.
 """
 
 class Solution(object):
