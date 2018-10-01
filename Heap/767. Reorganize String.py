@@ -18,6 +18,5 @@ class Solution:
                 heappush(pq, (tmp_cnt, tmp_key))
             cnt += 1
             tmp_cnt, tmp_key = cnt, key
-        
-        if len(res) != len(S): return ""
-        return res
+    
+        return res if len(res) == len(S) else ""
