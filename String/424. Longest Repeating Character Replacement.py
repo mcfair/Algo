@@ -20,7 +20,7 @@ def characterReplacement(self, s, k):
         result = max(result, end - start + 1)
     return result
   
-#method 2
+#method 2 - less readable
 """
 Keep track of curlen, end and majority_count
 """
