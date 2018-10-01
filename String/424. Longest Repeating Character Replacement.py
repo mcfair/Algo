@@ -14,7 +14,8 @@ def characterReplacement(self, s, k):
         count[s[end]] += 1
         #majority_count = count.most_common(1)[0][1]
         majority_count = max(majority_count, count[s[end]])  # 140ms with this line, compared to 400ms with line above.
-        if end - start + 1 > majority_count + k:
+        #if end - start + 1 > majority_count + k:
+        while end - start + 1 > majority_count + k: # "while" is more readable, but "if" works as well.
             count[s[start]] -= 1
             start += 1
         result = max(result, end - start + 1)
