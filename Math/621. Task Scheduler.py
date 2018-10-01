@@ -1,4 +1,4 @@
-#Iterative way - O(nlogn) - can use maxheap or simply sort
+#Iterative way - O(nlogn) - can be used to generate the string
 
 from collections import Counter
 def leastInterval(self,tasks,n):
