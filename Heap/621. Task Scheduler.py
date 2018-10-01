@@ -1,7 +1,6 @@
-#Iterative way - O(nlogn)
+#Iterative way - O(nlogn) - can use maxheap or simply sort
 
 from collections import Counter
- 
 def leastInterval(self,tasks,n):
 
     q = sorted(Counter(tasks).values())
