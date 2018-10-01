@@ -1,6 +1,6 @@
 """
 straight-forward solution, 
-use rand7 to represent range 1~49
+use two rand7 to represent range 1~49 (Note that rand7+rand7 can't represent 1~14 uniformly)
 if num <=40, return num%10+1
 The average call of rand7 is 2 * 49 / 40 = 2.45
 """
