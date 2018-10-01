@@ -14,6 +14,7 @@ class Solution(object):
 
    
 #most optimized way
+#https://leetcode.com/problems/implement-rand10-using-rand7/discuss/151567/C++JavaPython-Average-1.199-Call-rand7-Per-rand10
 
 class Solution(object):
     def __init__(self):
