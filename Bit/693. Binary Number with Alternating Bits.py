@@ -27,6 +27,6 @@ def hasAlternatingBits(self, n):
         n = n>>1
         if (n&1) + prev_bit != 1:
         #if (n&1) ^ prev_bit !=1:
-        #if not (n&1) ^ prev_bit
+        #if not (n&1) ^ prev_bit:
             return False
     return True
