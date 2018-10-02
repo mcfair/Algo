@@ -9,8 +9,12 @@ def highestBit2(x):
     n |= n>>4  
     n |= n>>8
     n |= n>>16
-"""
+""" 
+def hasAlternatingBits(self, n):
+    n ^= n>>2  # n XOR n>>2 should cancel all 1s, except the leading 1
+    return n & (n-1)==0 #if its power of 2, it only has 1 non-zero bit
 
+    
 #if it's alternating 1s and 0s, n^(n>>1) should give 000011...1
 #use highest bit trick to generate that number, and compare to n^(n-1)
 def hasAlternatingBits(self, n):
