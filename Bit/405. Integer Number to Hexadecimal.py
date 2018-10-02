@@ -1,7 +1,7 @@
 
 def toHex(self, num):
-
     if num==0: return '0'
+    
     table, res = '0123456789abcdef', ''
     i = 0
     while num and i<8:
