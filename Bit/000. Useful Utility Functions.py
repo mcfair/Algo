@@ -9,10 +9,7 @@ def highestBit2(x):
     # is 100010001). It does following 
     # 100010001 | 010001000 = 110011001 
     n |= n>>1
-   
-    # This makes sure 4 bits 
-    # (From MSB and including MSB) 
-    # are set. It does following 
+    
     # 110011001 | 001100110 = 111111111 
     n |= n>>2   
     n |= n>>4  
@@ -29,3 +26,5 @@ def highestBit2(x):
     # n now becomes 100000000 
     return n >> 1
   
+def isPowerOfTwo(n):
+  return n&(n-1)==0 if n>0 else False
