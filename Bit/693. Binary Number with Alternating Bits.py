@@ -17,7 +17,6 @@ def hasAlternatingBits(self, n):
     h = n
     for i in range(5):
         h |= h>>1  
-
     return h == n^(n>>1)
 
 #slower, go bit by bit
