@@ -1,4 +1,5 @@
-#use highest bit trick
+#if it's alternating 1s and 0s, n^(n>>1) should give 000011...1
+#use highest bit trick to generate that number, and compare to n^(n-1)
 def hasAlternatingBits(self, n):
     h = n
     for i in range(5):
