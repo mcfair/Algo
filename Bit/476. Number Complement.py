@@ -1,5 +1,4 @@
 def findComplement(self, num):
-
         comp = loc = 0
         while num:
             bit = num & 2**loc     #find bit at each location
