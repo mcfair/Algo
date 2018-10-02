@@ -20,7 +20,7 @@
        a = a xor i & ~b
 
 ```
-  def singleNumer3(nums):
+  def singleNumberOther3(nums):
     a = b = 0
     for num in nums:
         b = b ^ num & ~a
