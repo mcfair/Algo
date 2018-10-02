@@ -25,6 +25,9 @@ def highestBit2(x):
     # Return original MSB after shifting. 
     # n now becomes 100000000 
     return n >> 1
-  
+#another explanation of power of 2 is hamming_weight=1  
 def isPowerOfTwo(n):
   return n&(n-1)==0 if n>0 else False
+
+def removeLowestBit(n):
+  return n&(n-1) 
