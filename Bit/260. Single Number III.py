@@ -4,7 +4,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        a, b = 0, 0 # the result to the problem
+        a, b = 0, 0 # store the result to the problem
         
         #solution for Leetcode136 Single Number
         #here it returns the XOR result of two single numbers 
