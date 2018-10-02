@@ -1,4 +1,9 @@
 #Google!
+"""
+take 8 bit binary number abcdefgh for example, the process is as follow:
+
+abcdefgh -> efghabcd -> ghefcdab -> hgfedcba
+"""
 def reverseBits(n):
     n = (n >> 16) | (n << 16)
     n = ((n & 0xff00ff00) >> 8) | ((n & 0x00ff00ff) << 8)
