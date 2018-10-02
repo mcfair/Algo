@@ -1,5 +1,4 @@
 #Google!
-
 def reverseBits(n):
     n = (n >> 16) | (n << 16)
     n = ((n & 0xff00ff00) >> 8) | ((n & 0x00ff00ff) << 8)
