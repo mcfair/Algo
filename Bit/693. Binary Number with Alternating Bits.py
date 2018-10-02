@@ -29,5 +29,4 @@ def hasAlternatingBits(self, n):
         #if (n&1) ^ prev_bit !=1:
         #if not (n&1) ^ prev_bit
             return False
-
     return True
