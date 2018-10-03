@@ -52,7 +52,7 @@ class Solution(object):
                     break 
         return ans
 """
-
+optimized for readability
 """
 class Solution(object):
     def findMaximumXOR(self, nums):
