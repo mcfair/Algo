@@ -18,7 +18,6 @@ class Solution(object):
                     second = node
                 else:
                     second = node
-                    break
             prev= node
         
         #swap    
