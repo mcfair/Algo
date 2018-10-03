@@ -1,9 +1,6 @@
 class Solution(object):
     def inorderTraversal(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[int]
-        """
+ 
         def inorder(root):
             if root:
                 for x in inorder(root.left): yield x
