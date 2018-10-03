@@ -47,12 +47,12 @@ class Solution(object):
             ans <<= 1
             prefixes = set([x >> i for x in nums])
             
-            if any(answer^1 ^ p in prefixes for p in prefixes):
-                ans += 1
-
+            for p in prefixes:
+                if ans ^ 1 ^ p in prefixes:
+                    ans += 1
+                    break
           # else: on the next iteration, a '0' bit will be added
           # to the LSB because of the left shift
-
         return ans
 
 
