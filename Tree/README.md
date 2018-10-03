@@ -7,7 +7,6 @@ def isSameTree(p, q):
 
 def isSubtree(s, t):
     if not s: return False
-    #like preorder  
     return isSameTree(s, t) or self.isSubtree(s.left, t) or self.isSubtree(s.right, t)
     
 ```
