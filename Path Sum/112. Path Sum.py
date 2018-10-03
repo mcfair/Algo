@@ -1,3 +1,6 @@
+"""
+check if the tree has a root-to-leaf path sum equal to given target.
+"""
 class Solution(object):
     def hasPathSum(self, root, sum):
         """
