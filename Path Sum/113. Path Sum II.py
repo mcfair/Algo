@@ -1,3 +1,6 @@
+"""
+find all root-to-leaf paths where each path's sum equals the given target sum
+"""
 #another DFS  
 class Solution(object):
     def pathSum(self, root, sumv):
