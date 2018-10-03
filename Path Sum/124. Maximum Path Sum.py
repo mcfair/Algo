@@ -9,10 +9,6 @@ that's because in next round recursion, we need sum of a sub branch (from a node
 """
 class Solution(object):
     def maxPathSum(self, root):
-        """
-        :type root: TreeNode
-        :rtype: int
-        """
         self.maxsum = float('-inf')
         self.dfs(root)
         return self.maxsum
