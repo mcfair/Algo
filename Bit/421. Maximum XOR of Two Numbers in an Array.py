@@ -25,24 +25,41 @@ class Solution(object):
         ans = mask = 0
         
         for i in range(32, -1, -1):
-            mask |= (1 << i)
+            mask |= 1<<i
             hashset_ = set()
             for num in nums:
                 hashset_.add(num & mask)
             cand = ans | (1 << i)  
             # ans is the maximum we can get if we consider only the most significant i - 1 bits
             # cand the potential max value we can get when considering the most significant i bits. 
-            for prefix in set_:
+            for prefix in hashset_:
                 if cand ^ prefix in hashset_:
                     ans = cand
                     break
         return ans
     
+"""
+StefanPochmann's hard-to-read code
+"""
+class Solution(object):
+    def findMaximumXOR(self, nums):
     
+        ans = 0
+        for i in reversed(range(32)):
+            ans <<= 1
+            prefixes = set([x >> i for x in nums])
+            
+            if any(answer^1 ^ p in prefixes for p in prefixes):
+                ans += 1
+
+          # else: on the next iteration, a '0' bit will be added
+          # to the LSB because of the left shift
+
+        return ans
 
 
-#understand the trie idea
-#but don't understand the max matching for loop
+#Trie approach
+#don't understand the max matching for loop
 class Solution(object):
     def findMaximumXOR(self, nums):
         """
