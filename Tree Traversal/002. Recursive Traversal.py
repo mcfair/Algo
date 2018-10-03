@@ -8,7 +8,7 @@ def preorderTraversal(root):
     
     return res
   
-def preorderTraversal(root):
+def inorderTraversal(root):
     if not root: return []
     res = []
     
