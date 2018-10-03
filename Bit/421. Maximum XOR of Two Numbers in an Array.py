@@ -26,14 +26,12 @@ class Solution(object):
         
         for i in range(32, -1, -1):
             mask |= 1<<i
-            hashset_ = set()
-            for num in nums:
-                hashset_.add(num & mask)
+            hashset = set([x & mask for x in nums])
             cand = ans | (1 << i)  
             # ans is the maximum we can get if we consider only the most significant i - 1 bits
             # cand the potential max value we can get when considering the most significant i bits. 
-            for prefix in hashset_:
-                if cand ^ prefix in hashset_:
+            for prefix in hashset:
+                if cand ^ prefix in hashset:
                     ans = cand
                     break
         return ans
