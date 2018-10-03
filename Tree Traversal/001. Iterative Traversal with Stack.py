@@ -6,36 +6,40 @@ Just put (0, p[1]) in different position!
 
 #post-order traversal
 def postorderTraversal(self, root):
-    res, stack = [], [(1, root)]
+    res, stack = [], [(0, root)]
     while stack:
-        p = stack.pop()
-        if not p[1]: continue
-        if p[0] != 0:
-            stack.extend([(0, p[1]), (1, p[1].right), (1, p[1].left)])  
+        seen, node = stack.pop()
+        if not node:
+            continue
+        if not seen:
+            stack.extend([(1, node), (0, node.right), (0, node.left)])
         else:
-            res.append(p[1].val)
+            res.append(node.val)
     return res
-  
+
+
 #in-order traversal
 def inorderTraversal(self, root):
-    res, stack = [], [(1, root)]
+    res, stack = [], [(0, root)]
     while stack:
-        p = stack.pop()
-        if not p[1]: continue
-        if p[0] != 0:
-            stack.extend([(1, p[1].right), (0, p[1]), (1, p[1].left)])  
+        seen, node = stack.pop()
+        if not node:
+            continue
+        if not seen:
+            stack.extend([(0, node.right), (1, node), (0, node.left)])
         else:
-            res.append(p[1].val)
-    return res
+            res.append(node.val)
+    return res 
 
 #pre-order traversal
 def preorderTraversal(self, root):
-    res, stack = [], [(1, root)]
+    res, stack = [], [(0, root)]
     while stack:
-        p = stack.pop()
-        if not p[1]: continue
-        if p[0] != 0:
-            stack.extend([(1, p[1].right), (1, p[1].left), (0, p[1])]) 
+        seen, node = stack.pop()
+        if not node:
+            continue
+        if not seen:
+            stack.extend([(0, node.right), (0, node.left), (1, node)])
         else:
-            res.append(p[1].val)
-    return res
+            res.append(node.val)
+    return res 
