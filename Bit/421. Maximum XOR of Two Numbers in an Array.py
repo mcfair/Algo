@@ -1,3 +1,15 @@
+ 
+def findMaximumXOR(self, nums):
+        ans = 0
+        for i in reversed(range(32)):
+            prefixes = set([x >> i for x in nums])
+            ans <<=1
+            candidate = ans + 1   
+            if any(candidate^p in prefixes for p in prefixes):
+                 ans = candidate
+        return ans
+    
+    
 """
 Subtleties behind this brilliant algorithm:
 
@@ -59,8 +71,9 @@ class Solution(object):
     
         ans = 0
         for i in reversed(range(32)):
-            prefixes = set([x >> i for x in nums]  
-            cand = ans<<1 + 1 #equivalent to ans<<=1 then ans^1
+            prefixes = set([x >> i for x in nums]) 
+            ans <<= 1
+            cand = ans + 1 #equivalent to ans<<=1 then ans^1
             for p in prefixes:
                 if cand ^ p in prefixes:
                     ans = cand
