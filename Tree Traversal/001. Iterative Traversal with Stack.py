@@ -1,7 +1,7 @@
 """
 Summarization of three different kinds of traversal.
-we only need to change the order of tuples in one line as we've done this in the recursive solution 
-Just put (0, p[1]) in different position!
+In this template, we only need to change the order of tuples in one line as we've done this in the recursive solution. 
+Just put (1, node) in different position, where 1 is the "visited" flag
 """
 
 #post-order traversal
