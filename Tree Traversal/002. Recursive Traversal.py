@@ -1,1 +1,29 @@
-
+def preorderTraversal(root):
+    if not root: return []
+    res = []
+    
+    res.append(root.val)
+    res.extend(self.postorderTraversal(root.left))
+    res.extend(self.postorderTraversal(root.right))
+    
+    return res
+  
+def preorderTraversal(root):
+    if not root: return []
+    res = []
+    
+    res.extend(self.postorderTraversal(root.left))
+    res.append(root.val)
+    res.extend(self.postorderTraversal(root.right))
+    
+    return res  
+  
+def postorderTraversal(root):
+    if not root: return []
+    res = []
+    
+    res.extend(self.postorderTraversal(root.left))
+    res.extend(self.postorderTraversal(root.right))
+    res.append(root.val)
+    
+    return res
