@@ -22,7 +22,7 @@ def morris_in_order(root):
                 
                 
                 
- def morris_pre_order(root):
+def morris_pre_order(root):
     curr = root
     while curr:
         if not curr.left:
