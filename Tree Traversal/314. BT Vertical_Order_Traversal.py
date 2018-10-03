@@ -3,10 +3,7 @@
 
 class Solution(object):
     def verticalOrder(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[List[int]]
-        """
+   
         if not root: return []
         cols = collections.defaultdict(list)
         
