@@ -7,6 +7,7 @@ def inorderIter(root):
         yield root        
         for node in inorderIter(root.right): 
             yield node
+            
 class Solution(object):
     def recoverTree(self, root):
         prev, first, second = None, None, None
