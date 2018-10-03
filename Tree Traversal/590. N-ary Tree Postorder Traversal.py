@@ -22,7 +22,7 @@ class IterativeSolution(object):
             p=stack.pop()
             res.append(p.val)
             stack.extend(p.children)
-        return reversed(res)
+        return res[::-1]
        
       #compare and contrast with preorder code
       def preorder(self, root):
