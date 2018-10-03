@@ -44,18 +44,29 @@ class Solution(object):
     
         ans = 0
         for i in reversed(range(32)):
-            ans <<= 1
             prefixes = set([x >> i for x in nums])
-            
+            ans <<= 1
             for p in prefixes:
                 if ans ^ 1 ^ p in prefixes:
                     ans += 1
-                    break
-          # else: on the next iteration, a '0' bit will be added
-          # to the LSB because of the left shift
+                    break 
         return ans
+"""
 
-
+"""
+class Solution(object):
+    def findMaximumXOR(self, nums):
+    
+        ans = 0
+        for i in reversed(range(32)):
+            prefixes = set([x >> i for x in nums]  
+            cand = ans<<1 + 1 #equivalent to ans<<=1 then ans^1
+            for p in prefixes:
+                if cand ^ p in prefixes:
+                    ans = cand
+                    break      
+        return ans
+    
 #Trie approach
 #don't understand the max matching for loop
 class Solution(object):
