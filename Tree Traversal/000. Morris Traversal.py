@@ -10,7 +10,8 @@ def morris_in_order(root):
             while pred.right and pred.right!= curr:
                 pred = pred.right
              
-            #morris threading: use predecessor's right pointer to connect with current node
+            #morris threading: 
+            #if not connected yet: use predecessor's right pointer to connect with current node
             if not pred.right:
                 pred.right = curr
                 curr = curr.left
