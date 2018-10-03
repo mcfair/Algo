@@ -8,8 +8,8 @@ class RecursiveSolution(object):
             res += self.preorder(i)
         return res
         
- #Iterative Solution
- class IterativeSolution(object):
+#Iterative Solution
+class IterativeSolution(object):
     def preorder(self, root):
         if not root: return []
         stack = [root]
@@ -17,6 +17,5 @@ class RecursiveSolution(object):
         while stack:
             p=stack.pop()
             res.append(p.val)
-            for i in reversed(range(len(p.children))): 
-                stack.append(p.children[i])
+            stack.extend(reversed(p.children))
         return res
