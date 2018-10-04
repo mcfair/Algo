@@ -44,6 +44,7 @@ class DP_Solution(object):
         return minInitHP[0,0] + 1
     
 #O(n) space, fastest 28ms
+#Only after writing down the 2D DP, you can think of optimizing for space, to avoid mistakes.
 class Solution(object):  
     def calculateMinimumHP(self, dungeon):
         m, n = len(dungeon), len(dungeon[0])        
