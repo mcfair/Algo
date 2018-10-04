@@ -1,8 +1,10 @@
 """
 Three Methods:
-DFS + Memo --> easy to write in interview and error-proof
-Single DP from bottom-right corner to top-left corner --> clean code if edge cases handled properly
-Double DP, maintain two matrix: minInitHP, currHP --> difficult to get minmax correct, error-prone
+(1) DFS + Memo --> easy to write in interview and error-proof
+(2) Single DP, time and space are both O(n^2) 
+build 2D dp table from bottom-right corner to top-left corner --> clean code if edge cases handled properly
+StefanPochmann also made O(n) space possible, but not readable.
+(3) Double DP, maintain two matrix: minInitHP, currHP --> difficult to get minmax correct, error-prone
 """
 class DFS_Solution(object):
     def calculateMinimumHP(self, dungeon):
