@@ -1,7 +1,7 @@
 """
 Returns the smallest number m such that g(m) is true.
 """
-
+```
 def binary_search(l, r):
   while l < r:
     m = l + (r - l) // 2
@@ -11,3 +11,4 @@ def binary_search(l, r):
     else
       l = m + 1          # new range [m+1, r)
   return l               # or not found
+```
