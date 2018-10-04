@@ -25,7 +25,7 @@ class Solution:
         def bisect_left(nums, target):
             l, r = 0, len(nums) -1
             while l < r:
-                m = (l + r) // 2
+                m = (l + r) / 2
                 if nums[m] < target:
                     l = m + 1
                 else:
@@ -35,7 +35,7 @@ class Solution:
         def bisect_right(nums, target):
             l, r = 0, len(nums) -1
             while l < r:
-                m = (l + r) // 2 + 1
+                m = (l + r) / 2 + 1  # Make mid biased to the right
                 if nums[m] > target:
                     r = m - 1
                 else:
