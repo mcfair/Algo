@@ -17,7 +17,6 @@ def postorderTraversal(self, root):
             res.append(node.val)
     return res
 
-
 #in-order traversal
 def inorderTraversal(self, root):
     res, stack = [], [(0, root)]
