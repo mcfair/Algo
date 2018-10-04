@@ -7,7 +7,7 @@ def divide(self, a, b):
     while a >= b:
         i = 0
         while a >= b << (i + 1): 
-          i += 1
+            i += 1
         res += 1 << i
         a -= b << i
     return min(res if sign else -res, 2147483647)
