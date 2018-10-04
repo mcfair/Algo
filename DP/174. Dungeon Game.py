@@ -2,8 +2,8 @@
 Three Methods:
 (1) DFS + Memo --> easy to write in interview and error-proof
 (2) Single DP, time and space are both O(n^2) 
-build 2D dp table from bottom-right corner to top-left corner --> clean code if edge cases handled properly
-StefanPochmann also made O(n) space possible, but not readable.
+Build 2D dp table from bottom-right corner to top-left corner --> we can write clean code if edge cases handled properly
+A common practice to reduce space to O(n) is the state transition function only depends on previous row
 (3) Double DP, maintain two matrix: minInitHP, currHP --> difficult to get minmax correct, error-prone
 """
 class DFS_Solution(object):
@@ -39,10 +39,23 @@ class DP_Solution(object):
         for i in range(m)[::-1]:
             for j in range(n)[::-1]:
                 minInitHP[i,j] = min(minInitHP[i+1,j], minInitHP[i,j+1]) - dungeon[i][j]
-                minInitHP[i,j] = max(0, minInitHP[i,j]) #HP can't be negative
+                minInitHP[i,j] = max(0, minInitHP[i,j]) #HP must be >=1
                     
         return minInitHP[0,0] + 1
-
+    
+#O(n) space, fastest 28ms
+class Solution(object):  
+    def calculateMinimumHP(self, dungeon):
+        m, n = len(dungeon), len(dungeon[0])        
+        minInitHP = collections.defaultdict(lambda:float('inf'))
+        minInitHP[n-1] = 1
+        
+        for i in range(m)[::-1]:
+            for j in range(n)[::-1]:
+                minInitHP[j] = min(minInitHP[j], minInitHP[j+1]) - dungeon[i][j]
+                minInitHP[j] = max(1, minInitHP[j]) #HP must be >= 1
+                    
+        return minInitHP[0] 
 """
 Double DP
 Two arrays are used: one for saving minimum cost, one for saving minimum knight HP
