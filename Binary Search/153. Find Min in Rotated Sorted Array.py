@@ -1,6 +1,5 @@
- class Solution(object):
+class Solution(object):
     def findMin(self, nums):
-        
         #this if statement handles two cases: 
         #1. when len(nums)==1, nums[0] = nums[-1]
         #2. when nums is not rotated, nums[0] < nums[-1] 
