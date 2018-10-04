@@ -19,9 +19,7 @@ def morris_in_order(root):
             else:
                 yield curr.val
                 pred.right = None
-                curr = curr.right
-                
-                
+                curr = curr.right      
                 
 def morris_pre_order(root):
     curr = root
@@ -44,10 +42,35 @@ def morris_pre_order(root):
             else:
                 pred.right = None
                 curr = curr.right
-                               
-                
-  
-def postorderTraversal(self, root):
+"""
+pre-order traversal yields [curr, left, right]. Flip left & right in the code above, we get [curr, right, left].
+Reverse the result we will obtain [left, right, curr], which is exactly the post-order traversal. 
+"""             
+def moris_reverse_post_order(root):
+    curr = root
+    while curr:
+        if not curr.right:
+            yield curr.val
+            curr = curr.left
+        else:
+            pred = curr.right
+            while pred.left and pred.left!= curr:
+                pred = pred.left
+           
+            if not pred.left:
+                yield curr.val
+                pred.left = curr
+                curr = curr.right
+            else:
+                pred.left = None
+                curr = curr.left
+ def morris_post_order_traversal(self, root):
+     return [v for v in moris_reverse_post_order(root)] [::-1]
+
+"""
+real morris post-order traversal without reverse, but little diffifulct to implement in interview
+"""
+def morris_postorderTraversal(self, root):
     def reverseOrder(l, r):
         while l < r:
             result[l],result[r] = result[r],result[l]
