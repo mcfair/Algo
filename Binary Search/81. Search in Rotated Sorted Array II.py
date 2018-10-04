@@ -8,8 +8,8 @@ class Solution(object):
         
         pivot = nums[0]
         l, r = 0, len(nums)
-        #this while loop can be worst case O(n)
-        while r>1 and nums[r-1] == pivot:
+        #this while loop has worst case O(n)
+        while r>0 and nums[r-1] == pivot:
             r-=1
         
         while l<r:
