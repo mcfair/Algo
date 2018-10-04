@@ -3,15 +3,15 @@ Divide a by b, without using multiplication, division and mod operators.
 Which means we can only use +, -, and bit operations.
 """
 def divide(self, a, b):
-    sign = (a < 0) ^ (b < 0) 
+    negative = (a < 0) ^ (b < 0) 
     a, b, res = abs(a), abs(b), 0
     while a >= b:
-        i = 0
+        i = 0                     #i can only be power of 2
         while a >= b << (i + 1): 
-            i += 1
-        res += 1 << i
-        a -= b << i
-    return min(res if sign else -res, 2147483647)
+            i += 1                #find max i such that a = 2^i * b + c                       
+        res += 1 << i             #update the quotient with highest bit
+        a -= b << i               #decrease a = a - b*2^i
+    return min(-res if negative else res, 2147483647)
 
 """
 In this problem, we are asked to divide two integers. However, we are not allowed to use division, multiplication and mod operations. So, what else can we use? Yeah, bit manipulations.
