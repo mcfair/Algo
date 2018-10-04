@@ -9,3 +9,11 @@ def guessNumber(self, n):
         mid = (l+r)/2
 
     return mid
+
+"""
+Follow-up question LC375. Guess Number Higher or Lower II
+It is actually not DP problem instead of binary search.
+It's typical in interview that follow-up question can't be solved by refactoring code.
+Instead you need to start over again, like we saw in Google on-site: 
+orgininal question can be solved by sliding window, follow-up is a 2D DP
+"""
