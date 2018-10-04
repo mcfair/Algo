@@ -2,6 +2,7 @@
 Divide a by b, without using multiplication, division and mod operators.
 Which means we can only use +, -, and bit operations.
 """
+#O(logN^2) - This method practically uses larger than 32 bit (but Python has no int type constraint)
 def divide(self, a, b):
     negative = (a < 0) ^ (b < 0) 
     a, b, res = abs(a), abs(b), 0
@@ -13,6 +14,16 @@ def divide(self, a, b):
         a -= b << i               #decrease a = a - b*2^i
     return min(-res if negative else res, 2147483647)
 
+# O(32) - This is a real 32bit implementation
+def divide(self, A, B):
+    if (A == -2147483648 and B == -1): #handle overflow in 32bit enviroment
+        return 2147483647 
+    a, b, res = abs(A), abs(B), 0
+    for i in range(32)[::-1]:          #try bit by bit from high bit to low bit
+        if (a >> i) - b >= 0:
+            res += 1 << i
+            a -= b << i
+    return -res if (A > 0)^(B > 0) else res
 """
 In this problem, we are asked to divide two integers. However, we are not allowed to use division, multiplication and mod operations. So, what else can we use? Yeah, bit manipulations.
 
