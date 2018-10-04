@@ -3,7 +3,7 @@ Divide a by b, without using multiplication, division and mod operators.
 Integer division should truncate toward zero.
 """
 def divide(self, a, b):
-    sig = (a < 0) == (b < 0)
+    sig = (a < 0) ^ (b < 0)
     a, b, res = abs(a), abs(b), 0
     while a >= b:
         x = 0
