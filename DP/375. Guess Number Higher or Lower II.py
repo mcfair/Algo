@@ -1,6 +1,6 @@
 #Top down, DFS + Memo
 def getMoneyAmount(self, n):
-    memo = collections.defaultdict(int)
+    memo = {}
     def dfs(lo, hi):
         if lo>=hi: 
             return 0
