@@ -1,6 +1,6 @@
-"""
+
 Returns the smallest number m such that g(m) is true.
-"""
+
 ```
 def binary_search(l, r):
     while l < r:
