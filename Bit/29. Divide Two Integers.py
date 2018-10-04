@@ -1,6 +1,5 @@
 """
 Divide a by b, without using multiplication, division and mod operators.
-Integer division should truncate toward zero.
 """
 def divide(self, a, b):
     sign = (a < 0) ^ (b < 0)
@@ -13,7 +12,7 @@ def divide(self, a, b):
         a -= b << x
     return min(res if sign else -res, 2147483647)
 
-```
+"""
 In this problem, we are asked to divide two integers. However, we are not allowed to use division, multiplication and mod operations. So, what else can we use? Yeah, bit manipulations.
 
 Let's do an example and see how bit manipulations work.
@@ -35,4 +34,4 @@ dividend = INT_MIN and divisor = -1 (because abs(INT_MIN) = INT_MAX + 1).
 Of course, we also need to take the sign into considerations, which is relatively easy.
 
 Putting all these together, we have the following code.
-```
+"""
