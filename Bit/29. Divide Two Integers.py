@@ -1,5 +1,6 @@
 """
 Divide a by b, without using multiplication, division and mod operators.
+Which means we can only use +, -, and bit operations.
 """
 def divide(self, a, b):
     sign = (a < 0) ^ (b < 0) 
