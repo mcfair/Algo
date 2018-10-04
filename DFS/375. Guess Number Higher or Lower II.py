@@ -35,7 +35,6 @@ This leads to a natural recursion, which you can find in the code below. I have 
 
 #We can easily convert DSF+Memo to bottom-up DP
 def getMoneyAmount(self, n):
-
     dp = collections.defaultdict(int)
     for lo in range(n)[::-1]:
         for hi in range(lo+1, n+1):
