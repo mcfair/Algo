@@ -17,7 +17,7 @@ def morris_in_order(root):
                 curr = curr.left
             #if there is a connection, visit the current node then delete the threading
             else:
-                yield curr.val
+                yield curr.val  # yield curr after the thread is established for in-order
                 pred.right = None
                 curr = curr.right      
                 
@@ -35,7 +35,7 @@ def morris_pre_order(root):
              
             #morris threading: use predecessor's right pointer to connect with current node
             if not pred.right:
-                yield curr.val
+                yield curr.val  #yield curr before the thread is established for pre-order
                 pred.right = curr
                 curr = curr.left
             #if there is a connection, visit the current node then delete the threading
@@ -44,7 +44,7 @@ def morris_pre_order(root):
                 curr = curr.right
 """
 pre-order traversal yields [curr, left, right]. Flip left & right in the code above, we get [curr, right, left].
-Reverse the result we will obtain [left, right, curr], which is exactly the post-order traversal. 
+Reverse the result will give us [left, right, curr], which is exactly what we need for post-order traversal. 
 """             
 def moris_reverse_post_order(root):
     curr = root
