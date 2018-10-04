@@ -3,16 +3,12 @@ When pivot has duplicates, nums[0]==nums[-1], the solution for LC33 doesn't appl
 """
 class Solution(object):
     def search(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: bool
-        """
         if not nums: return False
         if target == nums[0]: return True
         
         pivot = nums[0]
         l, r = 0, len(nums)
+        #this while loop can be worst case O(n)
         while r>1 and nums[r-1] == pivot:
             r-=1
         
