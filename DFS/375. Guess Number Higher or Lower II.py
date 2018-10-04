@@ -32,3 +32,12 @@ So, if you choose 2 initially, you risk paying 2$ at most.
 Similarly, if you had chosen 3 initially, you risk paying 4$ at most. Hence picking 2 initially is the best option and you risk at most 2$.
 This leads to a natural recursion, which you can find in the code below. I have memoized it in a matrix.
 """
+
+#We can easily convert DSF+Memo to bottom-up DP
+def getMoneyAmount(self, n):
+
+    dp = collections.defaultdict(int)
+    for lo in range(n)[::-1]:
+        for hi in range(lo+1, n+1):
+            dp[lo, hi] = min(i + max(dp[lo,i-1], dp[i+1, hi]) for i in range(lo, hi))
+    return dp[1,n]
