@@ -1,8 +1,10 @@
 def search(self, nums, target):
-    l, r = 0, len(nums)
+    if not nums: return -1
+
+    l, r = 0, len(nums) 
     pivot = nums[0]
-    
-    while l < r:
+
+    while l <  r:
         mid = (l+r)//2
         if (target< pivot) == (nums[mid]<pivot): #target and nums[mid] in the same zone
             comparator = nums[mid]
@@ -11,11 +13,11 @@ def search(self, nums, target):
                 comparator = float('-inf')
             else:
                 comparator = float('inf')
-         #regular binary search
-         if target == comparator: return mid
-         if target < comparator:
+        #regular binary search
+        if target == comparator: 
+            return mid
+        if target > comparator:
             l = mid+1
-         else:
+        else:
             r = mid
-     return l
-         
+    return -1
