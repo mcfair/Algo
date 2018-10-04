@@ -1,8 +1,8 @@
 """
 Three Methods:
-DFS + Memo
-Single DP from bottom-right corner to top-left corner
-Double DP, maintain two matrix: minInitHP, currHP 
+DFS + Memo --> easy to write in interview and error-proof
+Single DP from bottom-right corner to top-left corner --> clean code if edge cases handled properly
+Double DP, maintain two matrix: minInitHP, currHP --> difficult to get minmax correct, error-prone
 """
 class DFS_Solution(object):
     def calculateMinimumHP(self, dungeon):
