@@ -47,3 +47,35 @@ def morris_pre_order(root):
                                
                 
   
+def postorderTraversal(self, root):
+    def reverseOrder(l, r):
+        while l < r:
+            result[l],result[r] = result[r],result[l]
+            l, r = l+1, r-1
+
+    result=[]
+    cur= TreeNode(None) #dummynode
+    cur.left = root
+
+    while cur!=None: 
+        if cur.left==None:
+            cur=cur.right
+        else:
+            pre=cur.left
+            while pre.right!=None and pre.right!=cur:
+                pre=pre.right
+            if pre.right==None:
+                pre.right=cur
+                cur=cur.left
+            else:
+                pre=cur.left
+                count=1
+                while pre.right!=None and pre.right!=cur:
+                    result.append(pre.val)
+                    pre=pre.right
+                    count+=1
+                result.append(pre.val)
+                pre.right=None
+                reverseOrder(len(result)-count,len(result)-1)
+                cur=cur.right
+    return result
