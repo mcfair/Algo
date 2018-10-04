@@ -1,4 +1,4 @@
-def bisect_left(a, x, lo=0, hi=None):
+def bisect_left(a, target, lo=0, hi=None):
     """Return the index where to insert item x in list a, assuming a is sorted.
     The return value i is such that all e in a[:i] have e < x, and all e in
     a[i:] have e >= x.  So if x already appears in the list, a.insert(x) will
@@ -13,11 +13,13 @@ def bisect_left(a, x, lo=0, hi=None):
         hi = len(a)
     while lo < hi:
         mid = (lo+hi)//2
-        if a[mid] < x: lo = mid+1
-        else: hi = mid
+        if a[mid] < target: 
+            lo = mid+1
+        else: 
+            hi = mid
     return lo
 
-def bisect_right(a, x, lo=0, hi=None):
+def bisect_right(a, target, lo=0, hi=None):
     """Return the index where to insert item x in list a, assuming a is sorted.
     The return value i is such that all e in a[:i] have e <= x, and all e in
     a[i:] have e > x.  So if x already appears in the list, a.insert(x) will
@@ -32,6 +34,8 @@ def bisect_right(a, x, lo=0, hi=None):
         hi = len(a)
     while lo < hi:
         mid = (lo+hi)//2
-        if x < a[mid]: hi = mid
-        else: lo = mid+1
+        if target < a[mid]: 
+            hi = mid
+        else: 
+            lo = mid+1
     return lo
