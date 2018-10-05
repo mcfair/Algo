@@ -1,4 +1,6 @@
 """
+Binary Search + Count
+
 The difficulty in this problem lies in O(1) space, and many solution using O(n) space can also be accepted by OJ.
 The solution is applying bi-search in the range[1, n] by counting the element which falls in sub range(n/2, n].
 If the number is bigger than capacity of that sub range, it means the duplicated integer falls in the sub-range.
@@ -23,3 +25,6 @@ class Solution(object):
                 high = mid
        
         return high
+
+    
+#This method can calso be applied to LC378. Kth Smallest Element in a Sorted Matrix
