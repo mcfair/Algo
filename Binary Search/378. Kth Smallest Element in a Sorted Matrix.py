@@ -13,7 +13,8 @@ def kthSmallest(self, matrix, k):
     
     while lo<hi:
         mid = (lo+hi)//2
-        if sum(bisect.bisect_right(row, mid) for row in matrix) < k:
+        counts = sum(bisect.bisect_right(row, mid) for row in matrix)
+        if counts < k:
             lo = mid+1
         else:
             hi = mid
