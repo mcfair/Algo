@@ -1,5 +1,7 @@
-#Binary Search + Counting (another binary search)
-
+"""
+Binary Search + Counting (binary search inside for loop)
+O(lgR * n * lgn) = O(nlgn) assuming lgR=32 (32bit integers)
+"""
 class Solution(object):
     def smallestDistancePair(self, nums, k):
         nums.sort() 
