@@ -1,3 +1,11 @@
+"""
+The only difference between bisect_left and bisect_right is
+if a[mid] < target:  #find left insertion point
+    lo = mid+1
+    
+if a[mid] <= target: #find right insertion point
+    lo = mid+1
+"""
 def bisect_left(a, target, lo=0, hi=None):
     """Return the index where to insert item x in list a, assuming a is sorted.
     The return value i is such that all e in a[:i] have e < x, and all e in
@@ -38,7 +46,9 @@ def bisect_right(a, target, lo=0, hi=None):
             lo = mid+1
     return lo
 
-## Another implementation using hi=len(a)-1, instead of hi=len(a)
+## Another implementation (from one of leetcode post) using hi=len(a)-1, instead of hi=len(a)
+## bisect_left is almost identical to the code above
+## bisect_right is a little messy, because of hi=len(a)-1
 
 def bisect_left(nums, target):
     l, r = 0, len(nums) -1
