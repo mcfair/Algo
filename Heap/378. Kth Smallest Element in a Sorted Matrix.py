@@ -11,7 +11,7 @@ def kthSmallest(self, matrix, k):
         heapq.heapify(heap)
       
         for _ in range(k):
-            ret, i, j = heapq.heappop(heap)
+            val, i, j = heapq.heappop(heap)
             if j+1 < len(matrix[0]):
                 heapq.heappush(heap, (matrix[i][j+1], i, j+1))
-        return ret
+        return val
