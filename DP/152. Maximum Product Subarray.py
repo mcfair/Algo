@@ -1,5 +1,6 @@
 """
-The problem depends not only on a state, but two states (the largest and smallest products).
+The problem depends not only on a state, but two states (the largest and smallest products),
+because negative*negative = positive
 dp[i] only depends on dp[i - 1] so we can optimize for space by saving only one step backwards.
 """
 def maxProduct(self,a):
