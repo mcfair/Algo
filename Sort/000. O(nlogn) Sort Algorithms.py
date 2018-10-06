@@ -26,12 +26,12 @@ def merge_sort(m):
     #heapq.merge is used to merge two sorted array, or use the function below
     
 def merge(left, right):
-    if not len(left) or not len(right):
+    if not left or not right:
         return left or right
  
     result = []
     i, j = 0, 0 #two pointer method
-    while (len(result) < len(left) + len(right)):
+    while len(result) < len(left) + len(right):
         if left[i] < right[j]:
             result.append(left[i])
             i+= 1
