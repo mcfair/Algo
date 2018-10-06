@@ -38,7 +38,7 @@ def minmaxGasDist(self, st , K):
                 left = mid + 1e-6
             else:
                 right = mid
-        return right
+        return left   #return right also works
 
 
 #Original answer from leetcode post
