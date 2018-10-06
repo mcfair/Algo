@@ -22,8 +22,26 @@ When left + 1e-6 >= right, it means the answer within 10^-6 of the true value an
 
 Time complexity:
 O(NlogM), where N is station length and M is st[N - 1] - st[0]
-"""
 
+Note: Answers within 10^-6 of the true value will be accepted as correct.
+"""
+#My implementaion
+def minmaxGasDist(self, st , K):
+        left, right = 1e-6, st[-1] - st[0]
+
+        while left + 1e-6 < right:
+            mid = (left + right) / 2
+            count = 0
+            for a, b in zip(st, st[1:]):
+                count += int((b-a)/mid) 
+            if count > K:
+                left = mid + 1e-6
+            else:
+                right = mid
+        return right
+
+
+#Original answer from leetcode post
 def minmaxGasDist(self, st, K):
         left, right = 1e-6, st[-1] - st[0]
         while left + 1e-6 < right:
