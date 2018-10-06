@@ -53,12 +53,6 @@ def kthSmallestPrimeFraction(self, A, K):
 #Found a 75ms solution in Leetcode        
 class Solution(object):
     def kthSmallestPrimeFraction(self, A, K):
-        """
-        :type A: List[int]
-        :type K: int
-        :rtype: List[int]
-        """
-        
         '''
         Alternative 4: 
         Binary search. 
