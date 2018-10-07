@@ -20,7 +20,7 @@ Consider the following linked list, where E is the cylce entry and X, the crossi
         |HE|+|EX| = (n-2*m)*L, where (n-2*m) is some integer.
         |HE| = k*L - |EX|, where integer k>=1
         
-        Thus if we have two pointers starting from head and X, respectively, one first reaches E, the other also reaches E. 
+        Thus if we have two pointers starting from head and X, respectively, they will definitely meet at E. 
 """
 
 def detectCycle(self, head):
