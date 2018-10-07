@@ -1,6 +1,8 @@
 """
 Input: a = "11", b = "1"
 Output: "100"
+
+The time complex is O(m+n+c)，it's linear, where m=len(a)，n=len(b) and c="count of carries, which is less than min(m,n)".
 """
 def addBinary(self, a, b):
     if not a or not b: 
@@ -14,3 +16,4 @@ def addBinary(self, a, b):
 
     else:
         return self.addBinary(a[0:-1],b[0:-1])+'1'
+
