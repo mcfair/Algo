@@ -1,5 +1,4 @@
 #Stephan add any number of lists
-
 def addTwoNumbers(self, l1, l2):
     addends = [l1, l2]
     dummy = res = ListNode(0)
