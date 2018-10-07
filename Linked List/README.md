@@ -21,22 +21,26 @@ class LinkedList(Object):
         if input:
             self.len = len(input)
             self.head = self.head.next
-            
-    def removeDuplicatesFromSortedList(self):
-         if not self.head or not self.head.next:
-            return 
+
+    def reverse(self):
+        """
+        use two pointers to reserve a linked list
+        remember those 4 lines!
+        """
+        l , r = None, self.head
+        while r:
+            l,  r.next,  r = r,  l,  r.next
+        self.head = l
         
-        slow = self.head
-        fast = self.head.next
-        
-        while slow and fast:
-            if fast.val ==slow.val:
-                slow.next = fast.next  #skip fast node
-                fast = slow.next
-            else:
-                slow = slow.next
-                fast = fast.next
- 
+    def reverseRecursively(self):
+        def _reverse(self, cur, prev=None):
+           if not cur: return prev  #if hitting the end of list (None), return its prev (new head)
+           nxt = cur.next           #save next node for recursion
+           cur.next = prev          #for the purpose of reverse, let cur.next point to prev
+           return ._reverse(nxt, cur)   
+    
+        self.head = _reverse(self.head, None)
+
     def sort(self, inplace=False): 
         if not self.head: 
             return
@@ -71,7 +75,21 @@ class LinkedList(Object):
                     pre = dummy
              self.head = pre.next
                  
-            
+    def removeDuplicatesFromSortedList(self):
+         if not self.head or not self.head.next:
+            return 
+        
+        slow = self.head
+        fast = self.head.next
+        
+        while slow and fast:
+            if fast.val ==slow.val:
+                slow.next = fast.next  #skip fast node
+                fast = slow.next
+            else:
+                slow = slow.next
+                fast = fast.next
+             
         
     def removeByValue(self, v):
         """remove all nodes with val v"""
