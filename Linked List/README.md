@@ -1,4 +1,4 @@
-```
+```python
 class ListNode(object):
    def __init__(self, x):
        self.val = x
@@ -94,5 +94,5 @@ class LinkedList(Object):
         """
         if node is not self.tail:
             node.val = node.next.val
-node.next = node.next.next
+            node.next = node.next.next
 ```
