@@ -10,17 +10,16 @@ class LinkedList(Object):
         self.len = 0
         if input:
             self.createFromArray(input)
-            
-            
+
     def createFromArray(self,input):
         """create linked list from a python sequence, i.e. list, tuple"""
         self.head = self.tail = ListNode(None) 
         for x in input:
             self.tail.next = ListNode(x)
             self.tail = self.tail.next
-        if input:
-            self.len = len(input)
-            self.head = self.head.next
+     
+         self.len = len(input)
+         self.head = self.head.next
 
     def reverse(self):
         """
