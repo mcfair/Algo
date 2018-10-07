@@ -21,7 +21,22 @@ class LinkedList(Object):
         if input:
             self.len = len(input)
             self.head = self.head.next
+            
+    def removeDuplicatesFromSortedList(self):
+         if not self.head or not self.head.next:
+            return 
         
+        slow = self.head
+        fast = self.head.next
+        
+        while slow and fast:
+            if fast.val ==slow.val:
+                slow.next = fast.next  #skip fast node
+                fast = slow.next
+            else:
+                slow = slow.next
+                fast = fast.next
+ 
     def sort(self, inplace=False): 
         if not self.head: 
             return
