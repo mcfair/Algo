@@ -1,28 +1,25 @@
 
 class Solution(object):
     def deleteDuplicates(self, head):
-        """
-        :type head: ListNode
-        :rtype: ListNode
-        """
-        
+ 
         dummy = ListNode('#');  # construct a dummy node
         dummy.next = head 
 
         pre = dummy           # set up pre and cur pointers
         cur = head
-        while cur:
-            if cur.next and cur.val == cur.next.val:
+        while cur and cur.next:
+            if cur.val == cur.next.val:
                 # loop until cur point to the last duplicates
                 while cur and cur.next and cur.val == cur.next.val:
                     cur = cur.next
-                pre.next = cur.next  # propose the next for pre
-                                     # this will be verified by next line
+                pre.next = cur.next  # skip all nodes with value== cuv.val
+                cur = cur.next
             else:
-                pre = pre.next 
+                pre = pre.next
+                cur = cur.next
                 
-            cur = cur.next
         return dummy.next
+        
         
         
 #This solution doesn't assume it's sorted list.
