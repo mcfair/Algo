@@ -1,6 +1,7 @@
 """
 The algorithm is called "Tortoise and hare".
 """
+#my 1st solution
 #standard slow and fast pointers (aka slow Tortoise and fast Hare)
 def hasCycle(self, head):
     if not head or not head.next:
