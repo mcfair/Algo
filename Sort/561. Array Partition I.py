@@ -13,15 +13,15 @@ def arrayPairSum(self, nums):
       for x in nums:
           cnt[x+10000] += 1
       
-      ans, adjust = 0, False
+      ans, odd = 0, False
       for idx, freq in enumerate(cnt):
           if freq:
-              freq = freq-1 if adjust else freq
+              freq = freq-1 if odd else freq
               if freq&1:
                   ans += ((freq//2) + 1)*(idx-10000)
-                  adjust = True
+                  odd = True
               else:
                   ans += (freq//2)*(idx-10000)
-                  adjust = False
+                  odd = False
       return ans
   
