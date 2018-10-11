@@ -9,6 +9,7 @@ if we keep it sorted, binary search takes O(lgn) insert takes O(n)
 
 What else we can do to keep both O(lgn) search and O(1) insert? Binary Search Tree
 """
+#O(n)
 class MyCalendarI:
     def __init__(self):
         self.intervals = []
@@ -22,7 +23,7 @@ class MyCalendarI:
         self.intervals.append((start, end))
         return True
         
-        
+#O(logn) - BST   
 class Node(object):
     def __init__(self, start, end):
         self.s = start
