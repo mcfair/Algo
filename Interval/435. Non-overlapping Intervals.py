@@ -3,6 +3,9 @@ thought process:
 Can Greedy algo guarentte the min # of intervals to remove? No
 No matter what, you have to sort it first.
 After sort, Can Greedy algo guarentte the min # of intervals to remove? yes
+
+Another thought, typically, when we see "min/max number" type of questions, it smells like DP.
+But for this problem, it is unlike to beat O(nlgn) with DP.
 """
 class Solution(object):
     def eraseOverlapIntervals(self, intervals):
