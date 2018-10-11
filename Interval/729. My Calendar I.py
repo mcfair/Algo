@@ -32,7 +32,7 @@ class Node(object):
         self.right = None
 
     def insert(self, start, end):
-        if self.s >= end:
+        if end <= self.s:
             if self.left is None:
                 self.left = Node(start, end)
                 return True
