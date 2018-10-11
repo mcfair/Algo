@@ -1,9 +1,17 @@
 """
 thought process:
 what's the best data structure to maintain this interval array, such that it has low cost to add numbers.
-List will have addNum O(N) and getInterval O(1) --> good design for less write/add and heavy read/query
-BST will have addNum O(lgN) and getInterval O(N) --> good design for heavy write and light query
-Heap implementation will give O(lgN) addNum and O(NlgN) query.
+(1) List will have addNum O(N) and getInterval O(1) --> good design for less write/add and heavy read/query
+(2) BST will have addNum O(lgN) and getInterval O(N) --> good design for heavy write and light query
+(3) Heap implementation will give O(lgN) addNum and O(NlgN) query.
+(4) Union-Find
+Think this way:  each point of time is a vertex, consecutive points form a connected component, interval = [min,max].
+In typical union-find, all vertices inside a connected component will be able to find its root by recursively calling its parent.
+This action is performed when a new vertex comes in, and the there is a need to determine if one of its neighbors belong to an existing component.
+But in this problem, a component (aka interval) can only have 2 border nodes (upper/lower bound of a range).
+It's only necessary for the border nodes to be able to find the root. Therefore there is no more need to have a find(). 
+So a hash table that tracks the border nodes is used instead.
+https://leetcode.com/problems/data-stream-as-disjoint-intervals/discuss/82619/JAVA-AC-Union-Find-Solution
 """
 #List solution O(n) Add, O(1) Query
 class SummaryRanges(object):
