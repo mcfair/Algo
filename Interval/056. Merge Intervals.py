@@ -23,7 +23,7 @@ class NlgN_Solution(object):
         return merged
         
 #stephan
-class O_of_N_Solution(object):
+class NlgN_Solution(object):
     def merge(self, intervals):
         out = []
         for x in sorted(intervals, key=lambda i: i.start):
