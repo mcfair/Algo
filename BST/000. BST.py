@@ -13,15 +13,9 @@ class BST(object):
             root = node
         else:
             if root.val < node.val:
-                if not root.right:
-                    root.right = node
-                else:
-                    self.insert(node, root.right)
+                self.insert(node, root.right)
             else:
-                if not root.left:
-                    root.left = node
-                else:
-                    self.insert(node, root.left)
+                self.insert(node, root.left)
 
      def search(self, val, root=self.root):
         if not root:
