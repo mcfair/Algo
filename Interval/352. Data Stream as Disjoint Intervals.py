@@ -1,11 +1,12 @@
 """
-thought process:
+This is an amazing problem to practice design trade-offs.
+Thought process:
 what's the best data structure to maintain this interval array, such that it has low cost to add numbers.
 (1) List insertion will have addNum O(N) and getInterval O(1) --> good design for less write/add and heavy read/query
 (2) List + sort, addNum O(1) and getInterval O(NlgN) or counting sort O(n) --> good for heavy write, and very rate query
 (3) BST will have addNum O(lgN) and getInterval O(N) --> balanced design for heavy write and light query
 (4) Heap implementation will give O(lgN) addNum and O(NlgN) query. This is a really bad design.
-(5) Union-Find, O(lgN) addNum and O(NlgN) query
+(5) Union-Find, O(lgN) addNum and O(NlgN) query. A bad design! But it's good to do thought experiment on this
 Think this way:  each point of time is a vertex, consecutive points form a connected component, interval = [min,max].
 In typical union-find, all vertices inside a connected component will be able to find its root by recursively calling its parent.
 This action is performed when a new vertex comes in, and the there is a need to determine if one of its neighbors belong to an existing component.
@@ -13,7 +14,7 @@ But in this problem, a component (aka interval) can only have 2 border nodes (up
 It's only necessary for the border nodes to be able to find the root. Therefore there is no more need to have a find(). 
 So a hash table that tracks the border nodes is used instead.
 https://leetcode.com/problems/data-stream-as-disjoint-intervals/discuss/82619/JAVA-AC-Union-Find-Solution
-However, the hashtable is not ordered, to output getInterval it takes O(NlgN), which is bad.
+However, the hashtable self.parent is not ordered, to output getInterval it takes O(NlgN), which is bad!
 """
 # Method 1 - List solution O(n) Add, O(1) Query
 class SummaryRanges(object):
