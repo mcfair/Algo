@@ -2,7 +2,7 @@
 thought process:
 what's the best data structure to maintain this interval array, such that it has low cost to add numbers.
 (1) List insertion will have addNum O(N) and getInterval O(1) --> good design for less write/add and heavy read/query
-(2) List + sort, addNum O(1) and getInterval O(NlgN) --> good for very heavy write, and very rate query
+(2) List + sort, addNum O(1) and getInterval O(NlgN) or counting sort O(n) --> good for heavy write, and very rate query
 (3) BST will have addNum O(lgN) and getInterval O(N) --> balanced design for heavy write and light query
 (4) Heap implementation will give O(lgN) addNum and O(NlgN) query. This is a really bad design.
 (5) Union-Find
@@ -14,7 +14,7 @@ It's only necessary for the border nodes to be able to find the root. Therefore 
 So a hash table that tracks the border nodes is used instead.
 https://leetcode.com/problems/data-stream-as-disjoint-intervals/discuss/82619/JAVA-AC-Union-Find-Solution
 """
-#List solution O(n) Add, O(1) Query
+# Method 1 - List solution O(n) Add, O(1) Query
 class SummaryRanges(object):
     def __init__(self):
         self.memo = []
@@ -41,7 +41,76 @@ class SummaryRanges(object):
         """
         return self.memo
 
-#Heap Solution - Heap is a binary tree, but not a Binary Search Tree
+# Method 2 sort -very easy to write, skip
+
+# Method 3 BST - O(lgN) Add, O(N) query
+class Node(object):
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
+        self.left = None
+        self.right = None
+
+class SummaryRanges(object):
+    def __init__(self):
+        self.root = None
+        
+    def addNum(self, val):  
+        if not self.root:
+            self.root = Node(val, val)
+        else:
+            self.insert(val, self.root)
+ 
+    def getIntervals(self):
+        """
+        In-order traversal & merge
+        """
+        stack = []
+        
+        for node in self.traverse(self.root):
+            if not stack:
+                stack.append(Interval(node.start, node.end))
+                continue
+            curr = Interval(node.start, node.end)
+            prev = stack[-1]
+            if prev.end >= curr.start-1:
+                stack[-1].start = min(curr.start, prev.start)
+                stack[-1].end = max(curr.end, prev.end)
+            else:
+                stack.append(curr)
+                
+        return stack
+                
+    def traverse(self, root):
+        if root:
+            for x in self.traverse(root.left): yield x
+            yield root
+            for x in self.traverse(root.right): yield x
+            
+            
+    def insert(self, val, root):
+ 
+        if val < root.start-1:
+            if root.left:
+                self.insert(val, root.left)
+            else:
+                root.left = Node(val,val)
+        elif val > root.end+1:          
+            if root.right:
+                self.insert(val, root.right)
+            else:
+                root.right = Node(val, val)
+        elif val == root.start -1:
+            root.start = val
+            if root.left:
+                self.insert(val, root.left)
+        elif val == root.end +1:
+            root.end = val
+            if root.right:
+                self.insert(val, root.right)
+        #At this point, we have all intervals updated, but not merged.        
+    
+# Method 4 Heap Solution - Heap is a binary tree, but not a Binary Search Tree
 class SummaryRanges(object):
     def __init__(self):
         self.intervals = []
@@ -66,5 +135,5 @@ class SummaryRanges(object):
         return list(map(lambda x: x[1], stack))
 
 
-#BST Solution
+#Method 5 Union-Find O(lgN) Union/Add, O(lgN) find,
   
