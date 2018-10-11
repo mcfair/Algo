@@ -16,7 +16,26 @@ class Solution(object):
                 stack.pop()
                 stack.append(inter)
             else: 
-                pass
+                pass #Do not append means removal
             
         return len(intervals) - len(stack)
+        
+#we can optimize for space, since only thing matters is stack[-1].end
+class Solution(object):
+    def eraseOverlapIntervals(self, intervals):
+
+        intervals.sort(key=lambda x: (x.start, -x.end))
+        prev_end = -float('inf')
+        removed = 0
+        
+        for inter in intervals:
+            #print inter.start, inter.end, removed, 'prev_end', prev_end
+            if  prev_end <= inter.start:
+                prev_end = inter.end
+            elif inter.end <= prev_end:
+                removed +=1
+                prev_end = inter.end
+            else:
+                removed +=1
+        return removed
         
