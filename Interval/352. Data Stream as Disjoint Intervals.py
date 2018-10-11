@@ -1,10 +1,11 @@
 """
 thought process:
 what's the best data structure to maintain this interval array, such that it has low cost to add numbers.
-(1) List will have addNum O(N) and getInterval O(1) --> good design for less write/add and heavy read/query
-(2) BST will have addNum O(lgN) and getInterval O(N) --> good design for heavy write and light query
-(3) Heap implementation will give O(lgN) addNum and O(NlgN) query.
-(4) Union-Find
+(1) List insertion will have addNum O(N) and getInterval O(1) --> good design for less write/add and heavy read/query
+(2) List + sort, addNum O(1) and getInterval O(NlgN) --> good for very heavy write, and very rate query
+(3) BST will have addNum O(lgN) and getInterval O(N) --> balanced design for heavy write and light query
+(4) Heap implementation will give O(lgN) addNum and O(NlgN) query. This is a really bad design.
+(5) Union-Find
 Think this way:  each point of time is a vertex, consecutive points form a connected component, interval = [min,max].
 In typical union-find, all vertices inside a connected component will be able to find its root by recursively calling its parent.
 This action is performed when a new vertex comes in, and the there is a need to determine if one of its neighbors belong to an existing component.
