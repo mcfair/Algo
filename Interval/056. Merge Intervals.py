@@ -23,11 +23,12 @@ class NlgN_Solution(object):
         return merged
         
 #stephan
-def merge(self, intervals):
-    out = []
-    for x in sorted(intervals, key=lambda i: i.start):
-        if out and x.start <= out[-1].end:
-            out[-1].end = max(out[-1].end, x.end)
-        else:
-            out.append(x)
-    return out
+class O_of_N_Solution(object):
+    def merge(self, intervals):
+        out = []
+        for x in sorted(intervals, key=lambda i: i.start):
+            if out and x.start <= out[-1].end:
+                out[-1].end = max(out[-1].end, x.end)
+            else:
+                out.append(x)
+        return out
