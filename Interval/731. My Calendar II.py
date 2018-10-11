@@ -1,9 +1,25 @@
 """
 My Calendar I: if find overlap return False, else insert meeting
-My Calendar II: allow double booking, but not triple booking or beyond.
-BST O(lgN) 
-This code can handle arbitary number of overlaps 
+My Calendar II: allow double booking, but not triple booking or beyond 
 """
+#Fisrt, a short O(n) solution, record overlaps (double booked time intervals)
+class MyCalendarTwo(object):
+
+    def __init__(self):
+        self.overlaps = []
+        self.calendar = []
+
+    def book(self, start, end):
+        for i, j in self.overlaps:
+            if start < j and end > i: 
+                return False
+        for i, j in self.calendar:
+            if start < j and end > i:
+                self.overlaps.append((max(start, i), min(end, j)))
+        self.calendar.append((start, end))
+        return True
+    
+# BST O(lgN), This code can handle arbitary number of overlaps 
 class MyCalendarTwo:
     def __init__(self):
         self.root = None
