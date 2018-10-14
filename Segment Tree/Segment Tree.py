@@ -1,3 +1,5 @@
+https://www.youtube.com/watch?v=Oq2E2yGadnU&t=130s
+    
 class SegmentTree:
     def __init__(self, values):
         self.data = [0 for _ in values] + values
