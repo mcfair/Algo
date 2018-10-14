@@ -1,4 +1,4 @@
-https://www.youtube.com/watch?v=Oq2E2yGadnU&t=130s
+# https://www.youtube.com/watch?v=Oq2E2yGadnU&t=130s
     
 class SegmentTree:
     def __init__(self, values):
