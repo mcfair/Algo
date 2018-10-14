@@ -3,7 +3,7 @@ class SegmentTreeNode(object):
     def __init__(self, val, start, end):
         self.val = val
         self.start = start
-        self.end = start
+        self.end = end
         self.left = None
         self.right = None
 
