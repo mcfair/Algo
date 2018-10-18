@@ -24,7 +24,7 @@ class Solution(object):
         ) ))
         
         #traverse all x from left to right
-        #main a max_heap which contains "HeightAndRight", tracking relavent tallest buliding. 
+        #maintain a max_heap which contains "HeightAndRight", tracking relavent tallest buliding. 
         #"i" is the pointer to track buildings
         for x in x_positions:
             
