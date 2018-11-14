@@ -16,7 +16,7 @@ class Solution(object):
         #found one of p, q in left, and another in right
         if left and right:
             return root
-        #otherwise, it must be the one is NOT NONE.
+        #otherwise, it must be the one that is NOT NONE.
         else:
             return left or right
             
