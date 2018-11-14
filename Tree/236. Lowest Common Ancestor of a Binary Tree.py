@@ -13,7 +13,7 @@ class Solution(object):
         left = self.lowestCommonAncestor( root.left, p, q) 
         right = self.lowestCommonAncestor(root.right, p, q)
         
-        #found one of p, q in left, and another in right
+        #found p, q in different branches, then current node (root) is the LCA
         if left and right:
             return root
         #otherwise, it must be the one that is NOT NONE.
