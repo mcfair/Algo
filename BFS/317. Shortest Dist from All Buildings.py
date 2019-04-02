@@ -1,4 +1,42 @@
 class Solution(object):
+   def shortestDistance(self, grid):
+    
+        if not grid or not grid[0]:
+            return -1
+        
+        h, w = len(grid), len(grid[0])
+        
+        buildings = []
+        for i in range(h):
+            for j in range(w):
+                if grid[i][j]==1:
+                    buildings.append((i,j))
+                    
+        dist = [[0]*w for _ in range(h)]
+                        
+        numVisits = 0
+        for i, j in buildings:
+            q = collections.deque([(i,j,0)])
+            while q:
+                i, j, d = q.popleft()
+                neighbours = [(i,j+1), (i,j-1), (i+1,j),(i-1,j)] 
+                for x,y in neighbours:
+                    if 0<=x<h and 0<=y<w and grid[x][y]==numVisits:
+                        dist[x][y] += d+1
+                        grid[x][y] -= 1
+                        q.append((x,y,d+1))
+            numVisits -=1
+            
+        res = float('inf')
+        for i in range(h):
+            for j in range(w):
+                if grid[i][j] + len(buildings)==0:
+                    res = min(res, dist[i][j])
+                    
+        return res if res < float('inf') else -1
+    
+
+class Solution(object):
     def shortestDistance(self, grid):
  
         if not grid or not grid[0]:
