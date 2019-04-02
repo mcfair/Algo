@@ -12,9 +12,10 @@ class Solution(object):
                 if grid[i][j]==1:
                     buildings.append((i,j))
                     
-        dist = [[0]*w for _ in range(h)]
-                        
+        dist = [[0]*w for _ in range(h)]             
         numVisits = 0
+         
+        #BFS with pruning
         for i, j in buildings:
             q = collections.deque([(i,j,0)])
             while q:
