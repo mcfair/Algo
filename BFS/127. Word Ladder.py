@@ -7,32 +7,33 @@ class Solution(object):
         :type wordList: List[str]
         :rtype: int
         """
-        front = set([beginWord])
-        back = set([endWord])
+        front = {beginWord}
+        back = {endWord}
         words = set(wordList)
         
-        if endWord not in words: return 0
-       
-        words -= front 
+        if endWord not in words:
+            return 0
+        
+        words = words - front  
         
         dist = 1
         while front:
-            tmp = []
-            for word in front:
-                for i in range(len(word)):
+            newfront = []
+            for w in front:
+                for i in range(len(w)):
                     for char in 'abcdefghijklmnopqrstuvwxyz':
-                        nxtword = word[:i]+char+word[i+1:]
+                        nxtword = w[:i] + char + w[i+1:]
                         if nxtword in words:
-                            tmp.append(nxtword)
-           
-            front = set(tmp)
-            
-            dist += 1
+                            newfront.append(nxtword)
+            front = set(newfront)
+            dist +=1
             if front & back:
                 return dist
             if len(back) < len(front):
                 front, back = back, front
-            words -= front    
+                
+            words = words - front
+        
         return 0
         
 #with hashtable, but not really speeding up in OJ
