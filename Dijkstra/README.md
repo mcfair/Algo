@@ -1,12 +1,12 @@
 BFS + Heap, and Dijkstra is just part of it
 
 
-Dijkstra Algorithm to find the shorted path for weighted graph (directed or undirected)
+Dijkstra Algorithm to find the shortest path for weighted graph (directed or undirected)
 
 Time complexity: O(E+NlogN)
 The code below is very powerful for followup questions, it returns (1)totalPrice, (2)numStops, and (3)path from src to dst.
 
-```
+```python
 class Solution(object):
     def findCheapestPrice(self, n, flights, src, dst, K):
         g = collections.defaultdict(dict)
