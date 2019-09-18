@@ -1,4 +1,4 @@
-```
+```python
 def inorderTraversal(self, root):
     def inorder(root):
         if root:
