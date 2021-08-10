@@ -4,6 +4,14 @@ This code is very powerful for followup questions, it returns totalPrice, numSto
 """
 class Solution(object):
     def findCheapestPrice(self, n, flights, src, dst, K):
+        """
+        :type n: int, # of cities
+        :type flights: List[List[int]]
+        :type src: int
+        :type dst: int
+        :type k: int, max # of stops
+        :rtype: int
+        """
         g = collections.defaultdict(dict)
         for u, v, price in flights:
             g[u][v] = price
