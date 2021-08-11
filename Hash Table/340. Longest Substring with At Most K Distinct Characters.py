@@ -1,17 +1,14 @@
 
 def lengthOfLongestSubstringKDistinct(self, s, k):
-        if not s:
-            return 0
+
         if k >= len(s):
             return len(s)
-        if k == 0:
+        if k*len(s) == 0:
             return 0
         
         dic = {}
         
-        count = 0
-        l = 0
-        r = 0
+        l, r, count = 0, 0, 0
         s = list(s)
         maxCount = 0
         
