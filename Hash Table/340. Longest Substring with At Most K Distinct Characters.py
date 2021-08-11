@@ -1,3 +1,47 @@
+
+def lengthOfLongestSubstringKDistinct(self, s, k):
+        if not s:
+            return 0
+        if k >= len(s):
+            return len(s)
+        if k == 0:
+            return 0
+        
+        dic = {}
+        
+        count = 0
+        l = 0
+        r = 0
+        s = list(s)
+        maxCount = 0
+        
+        # O(n) time
+        while r < len(s):
+            # If character not in dic then we add it and increment a count
+            if s[r] not in dic:
+                dic[s[r]] = 1
+                count += 1
+            else:
+                dic[s[r]] += 1
+                
+            # We reached the max distinct characters, update maxCount
+            if count <= k:
+                maxCount = max(maxCount, r-l+1)
+
+            # If count is greater than k then we have to shrink the window
+            else:
+				# check if l is in the dic, if so we have to decrement it
+				# and if it is now decremented to 0, we remove that from the dic
+				# and reduce count by 1
+                if s[l] in dic:
+                    dic[s[l]] -= 1
+                    if dic[s[l]] == 0:
+                        del dic[s[l]]
+                        count -= 1
+                l += 1
+            r += 1
+
+        return maxCount
 """
 two cases:
 when there are less than k chars in the hash table we put the char in the hash table
