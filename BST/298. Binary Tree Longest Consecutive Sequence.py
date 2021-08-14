@@ -15,7 +15,6 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
-        
         def search(node, patval, track):
             if not node:
                 self.ans = max(self.ans, track)
