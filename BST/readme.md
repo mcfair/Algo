@@ -1,3 +1,4 @@
+```python
 class Node(object):
     def __init__(self,key):
         self.left = None
@@ -26,3 +27,4 @@ class BST(object):
             return self.search(val, root.left)
         elif val > root.val:
             return self.search(val, root.right)
+```
