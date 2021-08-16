@@ -1,3 +1,5 @@
+Given an array of meeting time intervals intervals where intervals[i] = [starti, endi], return the minimum number of conference rooms required.
+
 # Definition for an interval.
 # class Interval(object):
 #     def __init__(self, s=0, e=0):
